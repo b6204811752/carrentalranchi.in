@@ -1,0 +1,251 @@
+[
+  {
+    "id": "ranchi-local-sightseeing",
+    "name": "Ranchi Local Sightseeing Tour",
+    "duration": "1 Day",
+    "price": 1800,
+    "places": [
+      "Tagore Hill",
+      "Rock Garden",
+      "Ranchi Lake",
+      "Pahari Mandir",
+      "Kanke Dam",
+      "Birsa Zoo"
+    ],
+    "desc": "Explore the capital city of Jharkhand with our full-day Ranchi local sightseeing tour covering all major attractions.",
+    "slug": "ranchi-local-sightseeing",
+    "metaTitle": "Ranchi Local Sightseeing Tour | 1 Day Package from ₹1800 | Car Rental Ranchi",
+    "metaDesc": "Book Ranchi Local Sightseeing Tour from Ranchi. 1 Day tour covering Tagore Hill, Rock Garden, Ranchi Lake. Starting ₹1800. Call +91 7488341848."
+  },
+  {
+    "id": "ranchi-waterfall-circuit",
+    "name": "Ranchi Waterfall Circuit Tour",
+    "duration": "1 Day",
+    "price": 2500,
+    "places": [
+      "Hundru Falls",
+      "Jonha Falls",
+      "Dassam Falls",
+      "Sita Falls"
+    ],
+    "desc": "Experience the majestic waterfalls around Ranchi. This tour covers the top 4 waterfalls in a single day trip.",
+    "slug": "ranchi-waterfall-circuit",
+    "metaTitle": "Ranchi Waterfall Circuit Tour | 1 Day Package from ₹2500 | Car Rental Ranchi",
+    "metaDesc": "Book Ranchi Waterfall Circuit Tour from Ranchi. 1 Day tour covering Hundru Falls, Jonha Falls, Dassam Falls. Starting ₹2500. Call +91 7488341848."
+  },
+  {
+    "id": "netarhat-hill-station",
+    "name": "Netarhat Hill Station Tour",
+    "duration": "2-3 Days",
+    "price": 5500,
+    "places": [
+      "Netarhat Sunrise Point",
+      "Magnolia Point",
+      "Upper Ghaghri Falls",
+      "Sadni Falls",
+      "Pine Forests"
+    ],
+    "desc": "Visit the Queen of Chotanagpur — Netarhat hill station with its stunning sunrise views and dense pine forests.",
+    "slug": "netarhat-hill-station",
+    "metaTitle": "Netarhat Hill Station Tour | 2-3 Days Package from ₹5500 | Car Rental Ranchi",
+    "metaDesc": "Book Netarhat Hill Station Tour from Ranchi. 2-3 Days tour covering Netarhat Sunrise Point, Magnolia Point, Upper Ghaghri Falls. Starting ₹5500. Call +91 7488341848."
+  },
+  {
+    "id": "betla-national-park-safari",
+    "name": "Betla National Park Safari",
+    "duration": "2 Days",
+    "price": 5000,
+    "places": [
+      "Betla National Park",
+      "Elephant Safari",
+      "Palamau Fort",
+      "Lodh Falls"
+    ],
+    "desc": "Wildlife adventure at Betla National Park with jungle safari, elephant rides, and ancient Palamau Fort.",
+    "slug": "betla-national-park-safari",
+    "metaTitle": "Betla National Park Safari | 2 Days Package from ₹5000 | Car Rental Ranchi",
+    "metaDesc": "Book Betla National Park Safari from Ranchi. 2 Days tour covering Betla National Park, Elephant Safari, Palamau Fort. Starting ₹5000. Call +91 7488341848."
+  },
+  {
+    "id": "deoghar-baidyanath-dham",
+    "name": "Deoghar Baidyanath Dham Tour",
+    "duration": "2 Days",
+    "price": 4500,
+    "places": [
+      "Baidyanath Temple",
+      "Trikut Hill",
+      "Naulakha Temple",
+      "Nandan Pahar",
+      "Tapovan"
+    ],
+    "desc": "Spiritual journey to one of the 12 Jyotirlingas at Deoghar. Includes Trikut Hill ropeway and temple visits.",
+    "slug": "deoghar-baidyanath-dham",
+    "metaTitle": "Deoghar Baidyanath Dham Tour | 2 Days Package from ₹4500 | Car Rental Ranchi",
+    "metaDesc": "Book Deoghar Baidyanath Dham Tour from Ranchi. 2 Days tour covering Baidyanath Temple, Trikut Hill, Naulakha Temple. Starting ₹4500. Call +91 7488341848."
+  },
+  {
+    "id": "rajrappa-temple-tour",
+    "name": "Rajrappa Temple Tour",
+    "duration": "1 Day",
+    "price": 1800,
+    "places": [
+      "Chhinnamasta Temple",
+      "Bhairavi-Damodar Confluence",
+      "River Bathing"
+    ],
+    "desc": "Visit the powerful Chhinnamasta Temple at Rajrappa, situated at the scenic confluence of Bhairavi and Damodar rivers.",
+    "slug": "rajrappa-temple-tour",
+    "metaTitle": "Rajrappa Temple Tour | 1 Day Package from ₹1800 | Car Rental Ranchi",
+    "metaDesc": "Book Rajrappa Temple Tour from Ranchi. 1 Day tour covering Chhinnamasta Temple, Bhairavi-Damodar Confluence, River Bathing. Starting ₹1800. Call +91 7488341848."
+  },
+  {
+    "id": "jharkhand-tribal-heritage",
+    "name": "Jharkhand Tribal Heritage Tour",
+    "duration": "3 Days",
+    "price": 7500,
+    "places": [
+      "Ulihatu",
+      "Tribal Museums",
+      "Dassam Falls",
+      "Local Villages",
+      "Craft Markets"
+    ],
+    "desc": "Immerse yourself in the rich tribal culture of Jharkhand. Visit Birsa Munda's birthplace and tribal villages.",
+    "slug": "jharkhand-tribal-heritage",
+    "metaTitle": "Jharkhand Tribal Heritage Tour | 3 Days Package from ₹7500 | Car Rental Ranchi",
+    "metaDesc": "Book Jharkhand Tribal Heritage Tour from Ranchi. 3 Days tour covering Ulihatu, Tribal Museums, Dassam Falls. Starting ₹7500. Call +91 7488341848."
+  },
+  {
+    "id": "hundru-jonha-dassam-tour",
+    "name": "Hundru-Jonha-Dassam Falls Tour",
+    "duration": "1 Day",
+    "price": 2200,
+    "places": [
+      "Hundru Falls",
+      "Jonha Falls",
+      "Gautamdhara Buddha Temple",
+      "Dassam Falls"
+    ],
+    "desc": "The most popular day trip from Ranchi covering three spectacular waterfalls in the scenic Jharkhand countryside.",
+    "slug": "hundru-jonha-dassam-tour",
+    "metaTitle": "Hundru-Jonha-Dassam Falls Tour | 1 Day Package from ₹2200 | Car Rental Ranchi",
+    "metaDesc": "Book Hundru-Jonha-Dassam Falls Tour from Ranchi. 1 Day tour covering Hundru Falls, Jonha Falls, Gautamdhara Buddha Temple. Starting ₹2200. Call +91 7488341848."
+  },
+  {
+    "id": "kolkata-weekend-tour",
+    "name": "Kolkata Weekend Tour from Ranchi",
+    "duration": "3 Days",
+    "price": 12000,
+    "places": [
+      "Victoria Memorial",
+      "Howrah Bridge",
+      "Dakshineswar",
+      "Park Street",
+      "Science City"
+    ],
+    "desc": "Weekend getaway from Ranchi to Kolkata. Explore the City of Joy's iconic landmarks and vibrant culture.",
+    "slug": "kolkata-weekend-tour",
+    "metaTitle": "Kolkata Weekend Tour from Ranchi | 3 Days Package from ₹12000 | Car Rental Ranchi",
+    "metaDesc": "Book Kolkata Weekend Tour from Ranchi from Ranchi. 3 Days tour covering Victoria Memorial, Howrah Bridge, Dakshineswar. Starting ₹12000. Call +91 7488341848."
+  },
+  {
+    "id": "bodh-gaya-spiritual-tour",
+    "name": "Bodh Gaya Spiritual Tour",
+    "duration": "2 Days",
+    "price": 5500,
+    "places": [
+      "Mahabodhi Temple",
+      "Great Buddha Statue",
+      "Bodhi Tree",
+      "Dungeshwari Cave",
+      "Sujata Stupa"
+    ],
+    "desc": "Pilgrimage to Bodh Gaya, the place where Lord Buddha attained enlightenment. UNESCO World Heritage Site.",
+    "slug": "bodh-gaya-spiritual-tour",
+    "metaTitle": "Bodh Gaya Spiritual Tour | 2 Days Package from ₹5500 | Car Rental Ranchi",
+    "metaDesc": "Book Bodh Gaya Spiritual Tour from Ranchi. 2 Days tour covering Mahabodhi Temple, Great Buddha Statue, Bodhi Tree. Starting ₹5500. Call +91 7488341848."
+  },
+  {
+    "id": "puri-bhubaneswar-tour",
+    "name": "Puri-Bhubaneswar Temple Tour",
+    "duration": "4 Days",
+    "price": 15000,
+    "places": [
+      "Jagannath Temple",
+      "Puri Beach",
+      "Konark Sun Temple",
+      "Lingaraj Temple",
+      "Udayagiri Caves"
+    ],
+    "desc": "Grand temple tour covering Odisha's most sacred sites including Jagannath Temple Puri and Konark Sun Temple.",
+    "slug": "puri-bhubaneswar-tour",
+    "metaTitle": "Puri-Bhubaneswar Temple Tour | 4 Days Package from ₹15000 | Car Rental Ranchi",
+    "metaDesc": "Book Puri-Bhubaneswar Temple Tour from Ranchi. 4 Days tour covering Jagannath Temple, Puri Beach, Konark Sun Temple. Starting ₹15000. Call +91 7488341848."
+  },
+  {
+    "id": "varanasi-spiritual-tour",
+    "name": "Varanasi Spiritual Tour from Ranchi",
+    "duration": "3 Days",
+    "price": 10000,
+    "places": [
+      "Kashi Vishwanath Temple",
+      "Ganga Aarti",
+      "Sarnath",
+      "Assi Ghat",
+      "BHU"
+    ],
+    "desc": "Experience the spiritual capital of India. Witness the mesmerizing Ganga Aarti and visit ancient temples.",
+    "slug": "varanasi-spiritual-tour",
+    "metaTitle": "Varanasi Spiritual Tour from Ranchi | 3 Days Package from ₹10000 | Car Rental Ranchi",
+    "metaDesc": "Book Varanasi Spiritual Tour from Ranchi from Ranchi. 3 Days tour covering Kashi Vishwanath Temple, Ganga Aarti, Sarnath. Starting ₹10000. Call +91 7488341848."
+  },
+  {
+    "id": "patratu-valley-tour",
+    "name": "Patratu Valley Day Trip",
+    "duration": "1 Day",
+    "price": 1500,
+    "places": [
+      "Patratu Dam",
+      "Patratu Valley",
+      "Scenic Road Drive"
+    ],
+    "desc": "Drive through one of India's most scenic roads — the Patratu Valley. Perfect for a quick nature escape from Ranchi.",
+    "slug": "patratu-valley-tour",
+    "metaTitle": "Patratu Valley Day Trip | 1 Day Package from ₹1500 | Car Rental Ranchi",
+    "metaDesc": "Book Patratu Valley Day Trip from Ranchi. 1 Day tour covering Patratu Dam, Patratu Valley, Scenic Road Drive. Starting ₹1500. Call +91 7488341848."
+  },
+  {
+    "id": "corporate-retreat-package",
+    "name": "Corporate Retreat Package",
+    "duration": "Flexible",
+    "price": 8000,
+    "places": [
+      "Resort Stay",
+      "Team Activities",
+      "Netarhat/Patratu Options"
+    ],
+    "desc": "Customized corporate retreat packages with transport, accommodation coordination, and team building destinations.",
+    "slug": "corporate-retreat-package",
+    "metaTitle": "Corporate Retreat Package | Flexible Package from ₹8000 | Car Rental Ranchi",
+    "metaDesc": "Book Corporate Retreat Package from Ranchi. Flexible tour covering Resort Stay, Team Activities, Netarhat/Patratu Options. Starting ₹8000. Call +91 7488341848."
+  },
+  {
+    "id": "jharkhand-complete-tour",
+    "name": "Jharkhand Complete State Tour",
+    "duration": "7 Days",
+    "price": 25000,
+    "places": [
+      "Ranchi",
+      "Jamshedpur",
+      "Deoghar",
+      "Netarhat",
+      "Betla",
+      "Parasnath",
+      "Rajrappa"
+    ],
+    "desc": "The ultimate Jharkhand tour covering all major destinations across the state in 7 unforgettable days.",
+    "slug": "jharkhand-complete-tour",
+    "metaTitle": "Jharkhand Complete State Tour | 7 Days Package from ₹25000 | Car Rental Ranchi",
+    "metaDesc": "Book Jharkhand Complete State Tour from Ranchi. 7 Days tour covering Ranchi, Jamshedpur, Deoghar. Starting ₹25000. Call +91 7488341848."
+  }
+]
