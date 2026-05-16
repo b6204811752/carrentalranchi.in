@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
-import { Phone, MapPin, CheckCircle, Clock, Car, Star, ArrowRight } from "lucide-react";
+import { Phone, MapPin, CheckCircle, Clock, Car, Star, ArrowRight, Navigation } from "lucide-react";
 import cities from "@/data/cities.json";
 import routes from "@/data/routes.json";
 import fleet from "@/data/fleet.json";
@@ -9,13 +9,18 @@ import BookingForm from "@/components/BookingForm";
 import FareCalculator from "@/components/FareCalculator";
 import FAQSection from "@/components/FAQSection";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import TrustBadges from "@/components/TrustBadges";
+import HeroBackground from "@/components/HeroBackground";
+import FleetSection from "@/components/FleetSection";
 
 export function generateStaticParams() {
-  return cities.map((c) => ({ city: c.slug }));
+  // Exclude Ranchi — it has a dedicated page at /cab-service-in-ranchi
+  return cities.filter(c => c.slug !== "cab-service-in-ranchi").map((c) => ({ city: c.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
   const { city } = await params;
+  if (city === "cab-service-in-ranchi") return {};
   const c = cities.find((c) => c.slug === city);
   if (!c) return {};
   return { title: c.metaTitle, description: c.metaDesc, alternates: { canonical: `https://carrentalranchi.in/${c.slug}` } };
@@ -23,6 +28,8 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
 
 export default async function CityPage({ params }: { params: Promise<{ city: string }> }) {
   const { city } = await params;
+  // Redirect Ranchi to dedicated powerhouse page
+  if (city === "cab-service-in-ranchi") redirect("/cab-service-in-ranchi");
   const c = cities.find((c) => c.slug === city);
   if (!c) notFound();
 
@@ -47,26 +54,31 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
 
   return (
     <>
-      <div className="hero-gradient pt-4 pb-12">
-        <div className="container-custom">
+      <div className="relative pt-4 pb-12 overflow-hidden">
+        <HeroBackground />
+        <div className="hero-gradient absolute inset-0 pointer-events-none z-0" />
+        <div className="container-custom relative z-10">
           <Breadcrumbs items={[{ label: c.name }]} />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-4">
             <div>
-              <span className="bg-primary/20 text-primary-light text-xs font-medium px-3 py-1 rounded-full">{c.state}</span>
-              <h1 className="text-2xl md:text-4xl font-bold mt-3 mb-3">Best Cab Service in {c.name} — Car Rental &amp; Taxi Booking</h1>
-              <p className="text-gray-300 mb-4">Book affordable cab service in {c.name}, {c.state}. Local taxi, outstation, airport transfer at ₹10/km. 24/7 available. AC sedan, SUV, Innova. Call +91 7488341848.</p>
+              <span className="section-heading">{c.state}</span>
+              <h1 className="text-2xl md:text-4xl font-bold mt-3 mb-3 leading-tight">Best <span className="gradient-text">Cab Service</span> in {c.name} — Car Rental &amp; Taxi Booking</h1>
+              <p className="text-gray-300 mb-5 text-sm leading-relaxed">Book affordable cab service in {c.name}, {c.state}. Local taxi, outstation, airport transfer at ₹10/km. 24/7 available. AC sedan, SUV, Innova. Call +91 7488341848.</p>
               <div className="flex flex-wrap gap-3 mb-6">
                 {fromRanchi && (
-                  <div className="glass-card-light p-3 text-center">
+                  <div className="stat-card !p-3">
+                    <Navigation size={14} className="text-accent mx-auto mb-1" />
                     <div className="text-accent font-bold">{fromRanchi.distance} km</div>
                     <div className="text-gray-500 text-xs">from Ranchi</div>
                   </div>
                 )}
-                <div className="glass-card-light p-3 text-center">
+                <div className="stat-card !p-3">
+                  <MapPin size={14} className="text-primary-light mx-auto mb-1" />
                   <div className="text-white font-bold">{c.pop}</div>
                   <div className="text-gray-500 text-xs">Population</div>
                 </div>
-                <div className="glass-card-light p-3 text-center">
+                <div className="stat-card !p-3">
+                  <Star size={14} className="text-yellow-400 mx-auto mb-1" />
                   <div className="text-primary-light font-bold">₹10/km</div>
                   <div className="text-gray-500 text-xs">Starting Fare</div>
                 </div>
@@ -77,6 +89,8 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
           </div>
         </div>
       </div>
+
+      <TrustBadges compact />
 
       {/* Fare Calculator */}
       <section className="section-padding bg-dark-light/50">
@@ -220,6 +234,8 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
           </div>
         </section>
       )}
+
+      <FleetSection compact />
 
       <FAQSection faqs={faqs} title={`Cab Service ${c.name} — FAQ`} />
 

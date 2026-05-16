@@ -87,11 +87,139 @@
   .fare-table th { background: rgba(5,150,105,0.2); padding: 12px 16px; text-align: left; font-weight: 600; color: #10b981; }
   .fare-table td { padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); }
   .fare-table tr:hover td { background: rgba(255,255,255,0.03); }
+
+  /* Premium UI Effects */
+  .premium-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .premium-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(16,185,129,0.5), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .premium-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(16,185,129,0.2);
+    box-shadow: 0 20px 40px -12px rgba(0,0,0,0.5), 0 0 30px rgba(5,150,105,0.08);
+  }
+  .premium-card:hover::before { opacity: 1; }
+
+  .icon-glow {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(5,150,105,0.08));
+    border: 1px solid rgba(16,185,129,0.15);
+  }
+  .icon-glow-amber {
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(217,119,6,0.08));
+    border: 1px solid rgba(245,158,11,0.15);
+  }
+
+  .gradient-border {
+    position: relative;
+    border: none !important;
+    background: linear-gradient(135deg, rgba(30,41,59,0.9), rgba(15,23,42,0.95));
+    border-radius: 16px;
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(16,185,129,0.3), rgba(245,158,11,0.2), rgba(16,185,129,0.1));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .stat-card {
+    text-align: center;
+    padding: 24px 16px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(30,41,59,0.7), rgba(15,23,42,0.9));
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.3s ease;
+  }
+  .stat-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(16,185,129,0.2);
+    box-shadow: 0 12px 30px -8px rgba(0,0,0,0.4);
+  }
+
+  .route-card {
+    background: linear-gradient(145deg, rgba(30,41,59,0.6), rgba(15,23,42,0.8));
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 20px;
+    transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    position: relative;
+    overflow: hidden;
+  }
+  .route-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    transform: scaleX(0);
+    transition: transform 0.35s ease;
+  }
+  .route-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(16,185,129,0.25);
+    box-shadow: 0 16px 32px -8px rgba(0,0,0,0.4);
+  }
+  .route-card:hover::after { transform: scaleX(1); }
+
+  .section-heading {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(245,158,11,0.08));
+    border: 1px solid rgba(16,185,129,0.15);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #10b981;
+  }
+
+  .animate-pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
+
+  .shimmer {
+    background: linear-gradient(110deg, transparent 33%, rgba(255,255,255,0.03) 50%, transparent 67%);
+    background-size: 300% 100%;
+    animation: shimmer 3s linear infinite;
+  }
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 @media (max-width: 768px) {

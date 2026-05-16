@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQSection from "@/components/FAQSection";
 import { Phone } from "lucide-react";
+import HeroBackground from "@/components/HeroBackground";
 
 export const metadata: Metadata = {
   title: "FAQ | Car Rental Ranchi | Frequently Asked Questions",
@@ -26,19 +27,25 @@ const faqs = [
 
 export default function FAQPage() {
   return (
-    <div className="hero-gradient pt-4 pb-0">
-      <div className="container-custom">
-        <Breadcrumbs items={[{ label: "FAQ" }]} />
-        <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-2">Frequently Asked Questions</h1>
-        <p className="text-gray-300 mb-4">Find answers to common questions about our cab service.</p>
+    <>
+      <div className="relative pt-4 pb-12 overflow-hidden">
+        <HeroBackground />
+        <div className="hero-gradient absolute inset-0 pointer-events-none z-0" />
+        <div className="container-custom relative z-10">
+          <Breadcrumbs items={[{ label: "FAQ" }]} />
+          <h1 className="text-3xl md:text-4xl font-bold mt-3 mb-2 leading-tight">Frequently Asked <span className="gradient-text">Questions</span></h1>
+          <p className="text-gray-300 mb-4 text-sm">Find answers to common questions about our cab service.</p>
+        </div>
       </div>
       <FAQSection faqs={faqs} title="" />
-      <section className="py-12 bg-gradient-to-r from-primary/20 to-accent/10">
-        <div className="container-custom text-center">
+      <section className="py-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-dark to-accent/10" />
+        <div className="absolute top-0 left-1/4 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
+        <div className="container-custom text-center relative z-10">
           <h2 className="text-xl font-bold mb-3">Still Have Questions?</h2>
-          <a href="tel:+917488341848" className="btn-accent mt-3"><Phone size={18} /> Call +91 7488341848</a>
+          <a href="tel:+917488341848" className="btn-accent mt-3 text-base"><Phone size={18} /> Call +91 7488341848</a>
         </div>
       </section>
-    </div>
+    </>
   );
 }

@@ -1,13 +1,23 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { MapPin, Clock, Navigation, Phone, ArrowRight, CheckCircle, Star } from "lucide-react";
+import { MapPin, Clock, Navigation, Phone, ArrowRight, CheckCircle, Star, Route, Fuel, AlertTriangle, Info, Calendar } from "lucide-react";
 import routes from "@/data/routes.json";
 import fleet from "@/data/fleet.json";
+import routeDetailsData from "@/data/routeDetails.json";
 import BookingForm from "@/components/BookingForm";
 import FareCalculator from "@/components/FareCalculator";
 import FAQSection from "@/components/FAQSection";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import TrustBadges from "@/components/TrustBadges";
+import HeroBackground from "@/components/HeroBackground";
+import FleetSection from "@/components/FleetSection";
+
+const routeDetails: Record<string, {
+  highwayName: string; viaRoute: string; enRouteCities: string[];
+  restStops: string[]; roadCondition: string; tollInfo: string;
+  bestTimeToTravel: string; travelTips: string; aboutDestination: string;
+}> = routeDetailsData;
 
 export function generateStaticParams() {
   return routes.map((r) => ({ route: r.slug }));
@@ -30,9 +40,11 @@ export default async function RoutePage({ params }: { params: Promise<{ route: s
   const r = routes.find((r) => r.slug === route);
   if (!r) notFound();
 
+  const details = routeDetails[r.slug];
+
   const faqs = [
-    { q: `What is the cab fare from Ranchi to ${r.to}?`, a: `The cab fare from Ranchi to ${r.to} starts at ₹${r.fares.dzire} in a Swift Dzire sedan (${r.distance} km × ₹${fleet[0].perKm}/km). SUV rates: Ertiga ₹${r.fares.ertiga}, Innova ₹${r.fares.innova}, Innova Crysta ₹${r.fares.crysta}. Toll charges and state taxes are additional at actuals. No hidden charges guaranteed.` },
-    { q: `How far is ${r.to} from Ranchi by road?`, a: `${r.to} is approximately ${r.distance} km from Ranchi via the fastest highway route. The journey takes about ${r.duration} by car depending on traffic and weather conditions. Our GPS-equipped drivers take the most efficient route.` },
+    { q: `What is the cab fare from Ranchi to ${r.to}?`, a: `The cab fare from Ranchi to ${r.to} starts at ₹${r.fares.dzire} in a Swift Dzire sedan (${r.distance} km × ₹${fleet[0].perKm}/km). SUV rates: Ertiga ₹${r.fares.ertiga}, Innova ₹${r.fares.innova}, Innova Crysta ₹${r.fares.crysta}. ${details ? `Toll charges (${details.tollInfo}) are additional.` : 'Toll charges and state taxes are additional at actuals.'} No hidden charges guaranteed.` },
+    { q: `How far is ${r.to} from Ranchi by road?`, a: `${r.to} is approximately ${r.distance} km from Ranchi${details ? ` via ${details.highwayName}` : ' via the fastest highway route'}. The journey takes about ${r.duration} by car depending on traffic and weather conditions.${details ? ` Route: ${details.viaRoute}.` : ''} Our GPS-equipped drivers take the most efficient route.` },
     { q: `Is one-way cab available from Ranchi to ${r.to}?`, a: `Yes! Car Rental Ranchi offers both one-way drop and round-trip cab service from Ranchi to ${r.to}. With one-way cab, you pay only for ${r.distance} km — no return charges. This is the most economical option for single-direction travel.` },
     { q: `Can I book a cab from ${r.to} to Ranchi?`, a: `Absolutely! We provide cab service from ${r.to} to Ranchi as well. The distance (${r.distance} km) and fare structure remain the same. Call +91 7488341848 or WhatsApp to book your return trip.` },
     { q: `Which car is best for Ranchi to ${r.to} trip?`, a: `For the ${r.distance} km journey, we recommend: Swift Dzire for budget solo/couple travel, Ertiga for small families (4-6 persons), Toyota Innova for larger groups and extra comfort, Innova Crysta for premium/business travel, and Tempo Traveller for groups of 10+. All vehicles are AC, well-maintained, and GPS-tracked.` },
@@ -47,35 +59,67 @@ export default async function RoutePage({ params }: { params: Promise<{ route: s
 
   const related = routes.filter((x) => x.state === r.state && x.slug !== r.slug).slice(0, 6);
 
+  const jsonLdRoute = {
+    "@context": "https://schema.org", "@type": "TaxiService",
+    name: `Ranchi to ${r.to} Cab Service - Car Rental Ranchi`,
+    description: r.metaDesc,
+    provider: {
+      "@type": "Organization", name: "Car Rental Ranchi", telephone: "+91-7488341848",
+      url: "https://carrentalranchi.in",
+      address: { "@type": "PostalAddress", addressLocality: "Ranchi", addressRegion: "Jharkhand", addressCountry: "IN" },
+    },
+    areaServed: [{ "@type": "City", name: "Ranchi" }, { "@type": "City", name: r.to }],
+    priceRange: `₹${r.fares.dzire} - ₹${r.fares.crysta}`,
+    availableChannel: {
+      "@type": "ServiceChannel", servicePhone: { "@type": "ContactPoint", telephone: "+91-7488341848" },
+      serviceUrl: `https://carrentalranchi.in/routes/${r.slug}`,
+    },
+  };
+
+  const jsonLdHowTo = {
+    "@context": "https://schema.org", "@type": "HowTo",
+    name: `How to Book Ranchi to ${r.to} Cab`,
+    description: `Book a cab from Ranchi to ${r.to} in 3 easy steps with Car Rental Ranchi.`,
+    step: [
+      { "@type": "HowToStep", position: 1, name: "Call or WhatsApp", text: "Call +91 7488341848 or send your travel details via WhatsApp" },
+      { "@type": "HowToStep", position: 2, name: "Confirm Booking", text: "Share pickup location, date, time & vehicle choice. Get instant confirmation with fare." },
+      { "@type": "HowToStep", position: 3, name: "Enjoy Your Ride", text: "Driver arrives at your doorstep on time. Sit back, relax, and enjoy the journey!" },
+    ],
+    totalTime: "PT2M",
+  };
+
   return (
     <>
-      <div className="hero-gradient pt-4 pb-12">
-        <div className="container-custom">
+      <div className="relative pt-4 pb-12 overflow-hidden">
+        <HeroBackground />
+        <div className="hero-gradient absolute inset-0 pointer-events-none z-0" />
+        <div className="container-custom relative z-10">
           <Breadcrumbs items={[{ label: "Routes", href: "/routes" }, { label: `Ranchi to ${r.to}` }]} />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-4">
             <div>
-              <div className="flex items-center gap-2 mb-3">
-                <span className="bg-primary/20 text-primary-light text-xs font-medium px-3 py-1 rounded-full">{r.state}</span>
-                <span className="bg-accent/20 text-accent text-xs font-medium px-3 py-1 rounded-full">{r.distance} km</span>
+              <div className="flex items-center gap-2 mb-3 flex-wrap">
+                <span className="section-heading">{r.state}</span>
+                <span className="bg-accent/15 text-accent text-xs font-medium px-3 py-1 rounded-full">{r.distance} km</span>
+                {details && <span className="bg-white/8 text-gray-300 text-xs font-medium px-3 py-1 rounded-full">{details.highwayName}</span>}
               </div>
-              <h1 className="text-2xl md:text-4xl font-bold mb-3">
-                Ranchi to {r.to} Cab Service — Book Taxi at ₹{fleet[0].perKm}/km
+              <h1 className="text-2xl md:text-4xl font-bold mb-3 leading-tight">
+                Ranchi to {r.to} <span className="gradient-text">Cab Service</span> — Book Taxi at ₹{fleet[0].perKm}/km
               </h1>
-              <p className="text-gray-300 mb-4">
-                Book affordable cab from Ranchi to {r.to} ({r.distance} km, {r.duration}). One-way &amp; round trip taxi available in sedan, SUV, Innova Crysta. Professional drivers, AC vehicles, 24/7 service. Call +91 7488341848.
+              <p className="text-gray-300 mb-5 text-sm leading-relaxed">
+                Book affordable cab from Ranchi to {r.to} ({r.distance} km, {r.duration}). {details ? `Via ${details.highwayName}. ` : ''}One-way &amp; round trip taxi available in sedan, SUV, Innova Crysta. Professional drivers, AC vehicles, 24/7 service. Call +91 7488341848.
               </p>
               <div className="grid grid-cols-3 gap-3 mb-6">
-                <div className="glass-card-light p-3 text-center">
+                <div className="stat-card !p-3">
                   <Navigation size={18} className="text-primary-light mx-auto mb-1" />
                   <div className="text-white font-bold">{r.distance} km</div>
                   <div className="text-gray-500 text-xs">Distance</div>
                 </div>
-                <div className="glass-card-light p-3 text-center">
+                <div className="stat-card !p-3">
                   <Clock size={18} className="text-accent mx-auto mb-1" />
                   <div className="text-white font-bold">{r.duration}</div>
                   <div className="text-gray-500 text-xs">Duration</div>
                 </div>
-                <div className="glass-card-light p-3 text-center">
+                <div className="stat-card !p-3">
                   <Star size={18} className="text-yellow-400 mx-auto mb-1" />
                   <div className="text-white font-bold">₹{r.fares.dzire}</div>
                   <div className="text-gray-500 text-xs">Starting Fare</div>
@@ -87,6 +131,66 @@ export default async function RoutePage({ params }: { params: Promise<{ route: s
           </div>
         </div>
       </div>
+
+      <TrustBadges compact />
+
+      {/* Route Via Section — Unique content competitors don't have */}
+      {details && (
+        <section className="section-padding bg-dark-light/50">
+          <div className="container-custom max-w-4xl">
+            <h2 className="text-2xl font-bold mb-6">Ranchi to {r.to} Route Details</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="glass-card-light p-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <Route size={18} className="text-primary-light" />
+                  <h3 className="text-white font-semibold">Route &amp; Highway</h3>
+                </div>
+                <p className="text-gray-300 text-sm mb-2"><strong>Highway:</strong> {details.highwayName}</p>
+                <p className="text-gray-300 text-sm"><strong>Via:</strong> {details.viaRoute}</p>
+                <div className="flex flex-wrap gap-1.5 mt-3">
+                  {details.enRouteCities.map(c => (
+                    <span key={c} className="text-xs bg-primary/10 text-primary-light px-2.5 py-1 rounded-full border border-primary/20">{c}</span>
+                  ))}
+                </div>
+              </div>
+              <div className="glass-card-light p-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <Info size={18} className="text-accent" />
+                  <h3 className="text-white font-semibold">Road Conditions</h3>
+                </div>
+                <p className="text-gray-300 text-sm">{details.roadCondition}</p>
+              </div>
+              <div className="glass-card-light p-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <Fuel size={18} className="text-green-400" />
+                  <h3 className="text-white font-semibold">Rest Stops &amp; Food</h3>
+                </div>
+                <ul className="space-y-1.5">
+                  {details.restStops.map((stop, i) => (
+                    <li key={i} className="text-gray-300 text-sm flex items-start gap-2">
+                      <CheckCircle size={14} className="text-green-400 shrink-0 mt-0.5" />
+                      {stop}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="glass-card-light p-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <AlertTriangle size={18} className="text-yellow-400" />
+                  <h3 className="text-white font-semibold">Toll &amp; Travel Tips</h3>
+                </div>
+                <p className="text-gray-300 text-sm mb-2"><strong>Toll:</strong> {details.tollInfo}</p>
+                <p className="text-gray-300 text-sm"><strong>Best Time:</strong> {details.bestTimeToTravel}</p>
+              </div>
+            </div>
+            {details.travelTips && (
+              <div className="glass-card-light p-5 mt-4 border-l-4 border-accent">
+                <p className="text-gray-300 text-sm"><strong className="text-accent">💡 Pro Tip:</strong> {details.travelTips}</p>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* Fare Table */}
       <section className="section-padding">
@@ -126,25 +230,31 @@ export default async function RoutePage({ params }: { params: Promise<{ route: s
           <div className="text-gray-300 text-sm leading-relaxed space-y-4">
             <p>Looking for a reliable and affordable <strong>cab service from Ranchi to {r.to}</strong>? <strong>Car Rental Ranchi</strong> is the most trusted name for <strong>Ranchi to {r.to} taxi service</strong>, offering the lowest fares starting at just <strong>₹{fleet[0].perKm}/km</strong> with zero hidden charges. Whether you need a <strong>one-way cab from Ranchi to {r.to}</strong>, a <strong>round trip taxi booking</strong>, or a comfortable <strong>outstation cab for {r.to}</strong>, we guarantee the best travel experience with professional drivers, clean AC vehicles, and 24/7 availability.</p>
 
-            <p>The <strong>Ranchi to {r.to} distance</strong> is approximately <strong>{r.distance} km</strong>, and the journey takes around <strong>{r.duration}</strong> via the best national highway route. Our experienced chauffeurs know every road, shortcut, and pit stop on this route, ensuring you reach {r.to} safely and on time. We have successfully completed <strong>2,450+ trips</strong> on this route with a customer satisfaction rating of <strong>4.8 out of 5</strong>.</p>
+            <p>The <strong>Ranchi to {r.to} distance</strong> is approximately <strong>{r.distance} km</strong>{details ? ` via ${details.highwayName}` : ''}, and the journey takes around <strong>{r.duration}</strong>{details ? `. The route passes through ${details.enRouteCities.join(', ')}` : ' via the best national highway route'}. Our experienced chauffeurs know every road, shortcut, and pit stop on this route, ensuring you reach {r.to} safely and on time.</p>
+
+            {/* About Destination — Unique per-route content */}
+            {details && (
+              <>
+                <h3 className="text-xl font-bold text-white mt-6">About {r.to}</h3>
+                <p>{details.aboutDestination}</p>
+              </>
+            )}
 
             <h3 className="text-xl font-bold text-white mt-6">Ranchi to {r.to} Cab Fare — Transparent Pricing</h3>
-            <p>We believe in <strong>100% transparent pricing</strong> with no surprise charges. Our <strong>Ranchi to {r.to} cab fare</strong> is calculated on a simple per-kilometer basis. Here&apos;s what you pay:</p>
+            <p>We believe in <strong>100% transparent pricing</strong> with no surprise charges. Our <strong>Ranchi to {r.to} cab fare</strong> is calculated on a simple per-kilometer basis:</p>
             <ul className="space-y-2">
               <li className="flex items-start gap-2"><CheckCircle size={16} className="text-primary-light shrink-0 mt-0.5" /><strong>Sedan (Swift Dzire/Etios):</strong> ₹{r.fares.dzire} for {r.distance} km one-way — best for solo travelers and couples</li>
               <li className="flex items-start gap-2"><CheckCircle size={16} className="text-primary-light shrink-0 mt-0.5" /><strong>SUV (Ertiga):</strong> ₹{r.fares.ertiga} for {r.distance} km one-way — ideal for families of 4-6</li>
               <li className="flex items-start gap-2"><CheckCircle size={16} className="text-primary-light shrink-0 mt-0.5" /><strong>Premium (Innova):</strong> ₹{r.fares.innova} for {r.distance} km one-way — extra comfort and luggage space</li>
               <li className="flex items-start gap-2"><CheckCircle size={16} className="text-primary-light shrink-0 mt-0.5" /><strong>Luxury (Innova Crysta):</strong> ₹{r.fares.crysta} for {r.distance} km one-way — top-tier comfort for business/VIP travel</li>
             </ul>
-            <p className="text-gray-400 text-xs">* Additional charges: Toll tax (at actuals), state permit if applicable, driver allowance ₹300-400/day for trips exceeding 300 km/day. Night charges may apply between 10 PM - 6 AM.</p>
 
             <h3 className="text-xl font-bold text-white mt-6">Why Car Rental Ranchi is the Best Choice for {r.to} Trip</h3>
-            <p>Choosing the right <strong>taxi service from Ranchi to {r.to}</strong> can make or break your travel experience. Here&apos;s why thousands of customers trust <strong>Car Rental Ranchi</strong> for their intercity cab needs:</p>
             <ul className="space-y-2">
               {[
                 `Lowest fares in Jharkhand — starting at ₹${fleet[0].perKm}/km with absolutely no hidden charges or surge pricing`,
                 "One-way cab option available — pay only for the distance you travel, no return fare",
-                "24/7 booking & availability — early morning 4 AM, late night 11 PM, weekends, holidays — we never say no",
+                "24/7 booking & availability — early morning 4 AM, late night 11 PM, weekends, holidays",
                 "Professional, police-verified drivers with 5+ years of experience on Jharkhand routes",
                 "100% AC, sanitized vehicles — regular deep cleaning, hand sanitizer, masks available",
                 "GPS-tracked vehicles — real-time location sharing with family for complete safety",
@@ -157,45 +267,7 @@ export default async function RoutePage({ params }: { params: Promise<{ route: s
               ))}
             </ul>
 
-            <h3 className="text-xl font-bold text-white mt-6">Available Vehicles for Ranchi to {r.to} Route</h3>
-            <p>We offer a wide range of <strong>well-maintained cars for Ranchi to {r.to} trip</strong>. Choose based on your group size, budget, and comfort preference:</p>
-            <ul className="space-y-2">
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-primary-light shrink-0 mt-0.5" /><strong>Swift Dzire / Toyota Etios (Sedan):</strong> 4-seater, AC, 2 bags capacity. Best for budget-conscious solo/couple travel. Fuel-efficient and comfortable for highway journeys.</li>
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-primary-light shrink-0 mt-0.5" /><strong>Maruti Ertiga (SUV/MUV):</strong> 6-seater, AC, 3 bags capacity. Perfect for small families and groups. Spacious cabin with good legroom.</li>
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-primary-light shrink-0 mt-0.5" /><strong>Toyota Innova (SUV):</strong> 7-seater, AC, 4 bags capacity. India&apos;s most trusted long-distance vehicle. Superior ride quality on highways.</li>
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-primary-light shrink-0 mt-0.5" /><strong>Toyota Innova Crysta (Premium SUV):</strong> 7-seater, AC, captain seats, 4+ bags. Top-tier luxury with automatic climate control and premium interiors.</li>
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-primary-light shrink-0 mt-0.5" /><strong>Tempo Traveller (12/17 seater):</strong> For group travel, pilgrimages, corporate outings, and wedding parties. AC, push-back seats, music system.</li>
-            </ul>
-
-            <h3 className="text-xl font-bold text-white mt-6">Ranchi to {r.to} Road Conditions & Route Information</h3>
-            <p>The <strong>Ranchi to {r.to} highway route</strong> is well-connected via national highways. The road conditions are generally good with some stretches under construction or repair depending on the season. Our drivers are experienced with this specific route and know the best roads, fuel stations, rest stops, and food joints along the way.</p>
-            <p>Key points about the <strong>Ranchi to {r.to} route</strong>:</p>
-            <ul className="space-y-1">
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-accent shrink-0 mt-0.5" />Total distance: {r.distance} km via the fastest highway route</li>
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-accent shrink-0 mt-0.5" />Estimated travel time: {r.duration} (may vary based on traffic and weather)</li>
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-accent shrink-0 mt-0.5" />Road type: Mix of national highway, state highway, and city roads</li>
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-accent shrink-0 mt-0.5" />Rest stops and dhabas available every 30-50 km along the route</li>
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-accent shrink-0 mt-0.5" />Petrol pumps available at regular intervals — no fuel worries</li>
-            </ul>
-
-            {r.attractions.length > 0 && (
-              <>
-                <h3 className="text-xl font-bold text-white mt-6">Top Places to Visit in {r.to}</h3>
-                <p>Traveling to <strong>{r.to} for tourism or sightseeing</strong>? Here are the must-visit tourist attractions in and around {r.to} that you can explore with our <strong>cab service</strong>:</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {r.attractions.map((a, i) => (
-                    <div key={i} className="flex items-center gap-2 bg-white/3 rounded-lg p-2.5 border border-white/5">
-                      <MapPin size={14} className="text-accent shrink-0" />
-                      <span className="text-gray-200">{a}</span>
-                    </div>
-                  ))}
-                </div>
-                <p>After reaching {r.to}, you can also book our <strong>local cab service in {r.to}</strong> for sightseeing. Our drivers double as local guides and can help you explore all major attractions comfortably.</p>
-              </>
-            )}
-
             <h3 className="text-xl font-bold text-white mt-6">How to Book Ranchi to {r.to} Cab — Simple 3-Step Process</h3>
-            <p>Booking your <strong>Ranchi to {r.to} taxi</strong> with Car Rental Ranchi takes less than 2 minutes:</p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-4">
               <div className="glass-card-light p-4 text-center">
                 <div className="text-2xl mb-2">📞</div>
@@ -205,7 +277,7 @@ export default async function RoutePage({ params }: { params: Promise<{ route: s
               <div className="glass-card-light p-4 text-center">
                 <div className="text-2xl mb-2">✅</div>
                 <h4 className="text-white font-semibold text-sm mb-1">Step 2: Confirm Booking</h4>
-                <p className="text-gray-400 text-xs">Share pickup location, date, time & vehicle choice. Get instant confirmation with fare.</p>
+                <p className="text-gray-400 text-xs">Share pickup location, date, time &amp; vehicle choice. Get instant confirmation with fare.</p>
               </div>
               <div className="glass-card-light p-4 text-center">
                 <div className="text-2xl mb-2">🚗</div>
@@ -214,28 +286,21 @@ export default async function RoutePage({ params }: { params: Promise<{ route: s
               </div>
             </div>
 
-            <h3 className="text-xl font-bold text-white mt-6">Ranchi to {r.to} Cab — Service Types Available</h3>
-            <p>We offer multiple <strong>cab service types</strong> on the Ranchi to {r.to} route to match your specific travel needs:</p>
-            <ul className="space-y-2">
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-primary-light shrink-0 mt-0.5" /><strong>One-Way Drop Taxi:</strong> Pay only for {r.distance} km. No return fare charged. Most economical option for single-direction travel.</li>
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-primary-light shrink-0 mt-0.5" /><strong>Round Trip Cab:</strong> Book for both sides — Ranchi → {r.to} → Ranchi. Get discounted per-km rates on return journey.</li>
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-primary-light shrink-0 mt-0.5" /><strong>Airport Transfer:</strong> Pickup from Birsa Munda Airport (Ranchi) and drop to {r.to}. Or reverse pickup from {r.to} to Ranchi Airport.</li>
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-primary-light shrink-0 mt-0.5" /><strong>Railway Station Transfer:</strong> Pickup/drop from Ranchi Junction or Hatia Station to {r.to}.</li>
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-primary-light shrink-0 mt-0.5" /><strong>Multi-City Trip:</strong> Combine {r.to} with other nearby destinations for a comprehensive tour package.</li>
-            </ul>
+            {r.attractions.length > 0 && (
+              <>
+                <h3 className="text-xl font-bold text-white mt-6">Top Places to Visit in {r.to}</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {r.attractions.map((a, i) => (
+                    <div key={i} className="flex items-center gap-2 bg-white/3 rounded-lg p-2.5 border border-white/5">
+                      <MapPin size={14} className="text-accent shrink-0" />
+                      <span className="text-gray-200">{a}</span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
 
-            <h3 className="text-xl font-bold text-white mt-6">Safety & Comfort Guaranteed</h3>
-            <p>Your safety is our top priority on every <strong>Ranchi to {r.to} cab journey</strong>. Every vehicle in our fleet undergoes regular maintenance checks, and all drivers are professionally trained and background-verified. We provide:</p>
-            <ul className="space-y-1">
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-accent shrink-0 mt-0.5" />Fully insured vehicles with valid fitness certificates</li>
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-accent shrink-0 mt-0.5" />First-aid kit and emergency contact numbers in every car</li>
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-accent shrink-0 mt-0.5" />Regular sanitization and deep cleaning of all vehicles</li>
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-accent shrink-0 mt-0.5" />Live GPS tracking shared with your family members</li>
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-accent shrink-0 mt-0.5" />Speed-governed vehicles — no over-speeding</li>
-              <li className="flex items-start gap-2"><CheckCircle size={16} className="text-accent shrink-0 mt-0.5" />24/7 helpline for any emergency during the trip</li>
-            </ul>
-
-            <h3 className="text-xl font-bold text-white mt-6">Frequently Searched Keywords — Ranchi to {r.to}</h3>
+            <h3 className="text-xl font-bold text-white mt-6">Frequently Searched — Ranchi to {r.to}</h3>
             <div className="flex flex-wrap gap-2 mt-2">
               {[
                 `Ranchi to ${r.to} cab`, `Ranchi to ${r.to} taxi`, `Ranchi to ${r.to} taxi fare`,
@@ -243,11 +308,8 @@ export default async function RoutePage({ params }: { params: Promise<{ route: s
                 `Ranchi to ${r.to} round trip cab`, `${r.to} to Ranchi cab`,
                 `Ranchi to ${r.to} car rental`, `Ranchi to ${r.to} cab service`,
                 `Ranchi to ${r.to} distance`, `cheapest cab Ranchi to ${r.to}`,
-                `Ranchi to ${r.to} taxi booking online`, `Ranchi to ${r.to} drop taxi`,
-                `Ranchi to ${r.to} outstation cab`, `cab fare Ranchi to ${r.to}`,
                 `Ranchi airport to ${r.to} cab`, `Ranchi to ${r.to} Innova booking`,
-                `Ranchi to ${r.to} SUV cab`, `best cab service Ranchi to ${r.to}`,
-                `Ranchi to ${r.to} night cab`, `Car Rental Ranchi to ${r.to}`,
+                `best cab service Ranchi to ${r.to}`, `Car Rental Ranchi to ${r.to}`,
               ].map((kw, i) => (
                 <span key={i} className="text-[10px] bg-white/5 border border-white/8 rounded-full px-2.5 py-1 text-gray-400">{kw}</span>
               ))}
@@ -258,7 +320,7 @@ export default async function RoutePage({ params }: { params: Promise<{ route: s
 
       {/* Related Routes */}
       {related.length > 0 && (
-        <section className="section-padding">
+        <section className="section-padding bg-dark-light/50">
           <div className="container-custom">
             <h2 className="text-xl font-bold mb-6">More Routes in {r.state}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -276,25 +338,28 @@ export default async function RoutePage({ params }: { params: Promise<{ route: s
         </section>
       )}
 
+      <FleetSection compact />
+
       <FAQSection faqs={faqs} title={`Ranchi to ${r.to} Cab — FAQ`} />
 
       {/* CTA */}
-      <section className="py-12 bg-gradient-to-r from-primary/20 to-accent/10">
-        <div className="container-custom text-center">
+      <section className="py-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-dark to-accent/10" />
+        <div className="absolute top-0 left-1/4 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
+        <div className="container-custom text-center relative z-10">
           <h2 className="text-xl md:text-2xl font-bold mb-3">Book Ranchi to {r.to} Cab Now</h2>
           <p className="text-gray-300 mb-5 text-sm">Starting at just ₹{r.fares.dzire}. Call now for instant booking!</p>
-          <a href="tel:+917488341848" className="btn-accent"><Phone size={18} /> +91 7488341848</a>
+          <a href="tel:+917488341848" className="btn-accent text-base"><Phone size={18} /> +91 7488341848</a>
         </div>
       </section>
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org", "@type": "TaxiService",
-        name: `Ranchi to ${r.to} Cab Service - Car Rental Ranchi`,
-        description: r.metaDesc,
-        provider: { "@type": "Organization", name: "Car Rental Ranchi", telephone: "+91-7488341848" },
-        areaServed: [{ "@type": "City", name: "Ranchi" }, { "@type": "City", name: r.to }],
-        priceRange: `₹${r.fares.dzire} - ₹${r.fares.crysta}`,
-      })}} />
+      {/* Updated: dateModified for freshness signal */}
+      <div className="container-custom py-4 text-center">
+        <p className="text-gray-600 text-xs">Last updated: May 2026 | Ranchi to {r.to} cab service by Car Rental Ranchi</p>
+      </div>
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdRoute) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdHowTo) }} />
     </>
   );
 }

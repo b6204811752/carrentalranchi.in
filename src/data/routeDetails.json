@@ -1,0 +1,112 @@
+{
+  "ranchi-to-jamshedpur-cab": {
+    "highwayName": "NH-33 (Ranchi–Jamshedpur Highway)",
+    "viaRoute": "Ranchi → Tamar → Chandil → Gamharia → Jamshedpur",
+    "enRouteCities": ["Tamar", "Bundu", "Chandil", "Gamharia"],
+    "restStops": ["Tamar Dhaba Cluster (45 km)", "Chandil Highway Restaurant (90 km)"],
+    "roadCondition": "Excellent 4-lane NH-33 highway, recently upgraded. Smooth tarmac throughout with well-marked lanes. Minor patches near Tamar during monsoon.",
+    "tollInfo": "2 toll plazas. Total toll ≈ ₹120–150 for sedan, ₹200–250 for SUV.",
+    "bestTimeToTravel": "Early morning (5–7 AM) or post-lunch (2–4 PM). Avoid Friday evening rush.",
+    "travelTips": "Chandil Dam area is a scenic photo stop. Carry light snacks. If traveling with kids, plan a 15-min break at Chandil.",
+    "aboutDestination": "Jamshedpur, founded by Jamsetji Tata in 1907, is India's first planned industrial city. Known as the Steel City, it houses Tata Steel's headquarters. The city is one of India's cleanest, featuring Jubilee Park (120 acres of gardens), Dimna Lake (boating & picnics), Dalma Wildlife Sanctuary (elephants & deer), and the Tata Steel Zoological Park."
+  },
+  "ranchi-to-dhanbad-cab": {
+    "highwayName": "NH-33 → NH-32 via Bokaro",
+    "viaRoute": "Ranchi → Ramgarh → Bokaro → Dhanbad",
+    "enRouteCities": ["Ramgarh", "Bokaro Steel City", "Sindri"],
+    "restStops": ["Ramgarh Highway Dhaba (45 km)", "Bokaro City Centre food court (110 km)"],
+    "roadCondition": "Mixed road quality. NH-33 till Ramgarh is excellent 4-lane. Ramgarh to Dhanbad via NH-32 is 2-lane with some rough patches.",
+    "tollInfo": "1 toll plaza near Ramgarh. Toll ≈ ₹80–100 for sedan.",
+    "bestTimeToTravel": "Morning departure recommended. Coal truck traffic heavy on NH-32 during afternoon.",
+    "travelTips": "Dhanbad is the Coal Capital of India. Visit Maithon Dam (30 km from Dhanbad) if time permits. The route passes through scenic hills near Ramgarh.",
+    "aboutDestination": "Dhanbad, the Coal Capital of India, is the largest coal-producing district in India. Key attractions include Maithon Dam (serene reservoir), Topchanchi Lake (picnic spot), Bhatinda Falls, and the Indian School of Mines (IIT Dhanbad). The city is an important junction for travel to Kolkata and eastern India."
+  },
+  "ranchi-to-bokaro-cab": {
+    "highwayName": "NH-33 (Ranchi–Bokaro Highway)",
+    "viaRoute": "Ranchi → Ormanjhi → Ramgarh → Bokaro Steel City",
+    "enRouteCities": ["Ormanjhi", "Ramgarh Cantt", "Bermo"],
+    "restStops": ["Ormanjhi food stalls (20 km)", "Ramgarh town restaurants (45 km)"],
+    "roadCondition": "Good 4-lane highway (NH-33) for most of the journey. Well-maintained with regular signage.",
+    "tollInfo": "1 toll plaza. Toll ≈ ₹60–80 for sedan.",
+    "bestTimeToTravel": "Any time of day. Short 2.5-hour journey suitable for day trips.",
+    "travelTips": "Bokaro Steel City is well-planned with wide roads. Visit City Park and Garga Dam. Good food available at Sector 4 market.",
+    "aboutDestination": "Bokaro Steel City is India's first Swadeshi steel plant city. Planned by Soviet architects in the 1960s, it features wide boulevards, Garga Dam (popular picnic spot), City Park (large green space), and Jawaharlal Nehru Biological Park (zoo). The city is known for its clean environment and organized sectors."
+  },
+  "ranchi-to-hazaribagh-cab": {
+    "highwayName": "NH-33 → NH-2 (Grand Trunk Road)",
+    "viaRoute": "Ranchi → Ormanjhi → Ramgarh → Hazaribagh",
+    "enRouteCities": ["Ormanjhi", "Ramgarh", "Charhi"],
+    "restStops": ["Ramgarh restaurants (45 km)", "Charhi dhaba cluster (70 km)"],
+    "roadCondition": "Good highway condition. NH-33 portion is 4-lane. Approach to Hazaribagh via GT Road is 2-lane but well-maintained.",
+    "tollInfo": "1 toll plaza near Ramgarh. Toll ≈ ₹60 for sedan.",
+    "bestTimeToTravel": "Morning preferred for scenic views of the hills. October–March best season.",
+    "travelTips": "Hazaribagh is at 2000 ft elevation — pleasant weather year-round. Visit Canary Hill for panoramic views. Hazaribagh Wildlife Sanctuary entry requires permit.",
+    "aboutDestination": "Hazaribagh ('Land of a Thousand Gardens') is a scenic hill town at 2000 ft elevation. Famous for Hazaribagh Wildlife Sanctuary (tigers, leopards), Canary Hill (panoramic viewpoint), Hazaribagh Lake, and the historic Rajrappa Chhinnamasta Temple nearby. The town has a pleasant climate and is a gateway to Betla National Park."
+  },
+  "ranchi-to-deoghar-cab": {
+    "highwayName": "NH-33 → NH-114 → NH-19",
+    "viaRoute": "Ranchi → Ramgarh → Bokaro → Giridih → Deoghar",
+    "enRouteCities": ["Ramgarh", "Bokaro", "Giridih", "Madhupur"],
+    "restStops": ["Ramgarh food stop (45 km)", "Bokaro restaurants (110 km)", "Giridih highway dhaba (200 km)"],
+    "roadCondition": "NH-33 till Bokaro is excellent. Bokaro to Deoghar via NH-114 is 2-lane with moderate traffic. Some stretches under improvement near Giridih.",
+    "tollInfo": "2 toll plazas. Total toll ≈ ₹150–200 for sedan.",
+    "bestTimeToTravel": "Early morning departure essential for this 5-hour journey. During Shravan month (Jul–Aug), expect heavy pilgrim traffic near Deoghar.",
+    "travelTips": "Deoghar is one of the 12 Jyotirlinga destinations. Book early during Shravan Mela. Carry comfortable walking shoes for temple visits. Trikut Hill has a ropeway.",
+    "aboutDestination": "Deoghar ('Abode of Gods') is home to Baidyanath Dham, one of the 12 sacred Jyotirlingas of Lord Shiva. During Shravan month, millions of Kanwariyas walk barefoot carrying Ganga water. Other attractions include Trikut Hill (ropeway & panoramic views), Naulakha Temple, Satsang Ashram, and Tapovan Hills."
+  },
+  "ranchi-to-patna-cab": {
+    "highwayName": "NH-33 → NH-2 (Grand Trunk Road)",
+    "viaRoute": "Ranchi → Ramgarh → Hazaribagh → Koderma → Aurangabad → Patna",
+    "enRouteCities": ["Ramgarh", "Hazaribagh", "Koderma", "Nawada", "Bihar Sharif"],
+    "restStops": ["Ramgarh (45 km)", "Hazaribagh town (100 km)", "Koderma highway dhaba (160 km)", "Nawada restaurants (260 km)"],
+    "roadCondition": "Mostly 4-lane highway (NH-33 + NH-2). Grand Trunk Road stretch is excellent. Some congestion near Aurangabad town.",
+    "tollInfo": "3–4 toll plazas. Total toll ≈ ₹300–400 for sedan. Bihar state entry tax may apply.",
+    "bestTimeToTravel": "Very early morning (4–5 AM) to avoid traffic and reach Patna by noon. Avoid late evening departure due to truck traffic on GT Road at night.",
+    "travelTips": "This is a long 6.5-hour journey — plan 2 food/rest stops. Patna traffic is heavy; share your hotel address with driver in advance. The Ganga riverside is beautiful at sunset.",
+    "aboutDestination": "Patna (ancient Pataliputra), capital of Bihar, is one of the oldest continuously inhabited cities in the world. Key attractions include Golghar (granary with city views), Patna Museum (world-class collection), Mahavir Mandir (revered Hindu temple), Gandhi Maidan, and the historic Patna Sahib Gurudwara. Nalanda and Rajgir are day-trip destinations from Patna."
+  },
+  "ranchi-to-kolkata-cab": {
+    "highwayName": "NH-33 → NH-19 (Golden Quadrilateral)",
+    "viaRoute": "Ranchi → Jamshedpur → Kharagpur → Kolkata",
+    "enRouteCities": ["Jamshedpur", "Baharagora", "Kharagpur", "Kolaghat"],
+    "restStops": ["Chandil area (90 km)", "Jamshedpur city (130 km)", "Baharagora highway (180 km)", "Kharagpur (280 km)"],
+    "roadCondition": "Excellent 4-lane highway throughout. NH-33 till Jamshedpur, then NH-19 (part of Golden Quadrilateral) is world-class expressway quality.",
+    "tollInfo": "5–6 toll plazas. Total toll ≈ ₹500–600 for sedan. WB state entry charges apply.",
+    "bestTimeToTravel": "Very early morning (4 AM) departure to reach Kolkata before evening traffic. Avoid Friday evening arrivals.",
+    "travelTips": "8-hour journey — plan breakfast at Jamshedpur and lunch at Kharagpur. Enter Kolkata via Dankuni bypass to avoid Howrah congestion. Pre-book hotel near your meeting point.",
+    "aboutDestination": "Kolkata, the City of Joy and cultural capital of India, offers Victoria Memorial, Howrah Bridge, Dakshineswar Temple, Indian Museum, Park Street, and New Market for shopping. The city is famous for its sweets (Rasgulla, Sandesh), Durga Puja, and literary heritage."
+  },
+  "ranchi-to-varanasi-cab": {
+    "highwayName": "NH-33 → NH-2 (Grand Trunk Road)",
+    "viaRoute": "Ranchi → Hazaribagh → Koderma → Sasaram → Varanasi",
+    "enRouteCities": ["Hazaribagh", "Koderma", "Gaya", "Sasaram", "Chandauli"],
+    "restStops": ["Hazaribagh (100 km)", "Koderma (160 km)", "Sasaram (310 km)", "Chandauli (380 km)"],
+    "roadCondition": "Good highway quality. NH-2 (GT Road) is 4-lane for most stretches. Some congestion near small towns.",
+    "tollInfo": "4–5 toll plazas. Total toll ≈ ₹400–500 for sedan. Bihar + UP state taxes apply.",
+    "bestTimeToTravel": "Pre-dawn departure (3–4 AM) essential for 8.5-hour journey. October–March best for pleasant weather in Varanasi.",
+    "travelTips": "Very long journey — plan 3 rest stops. Varanasi traffic is chaotic near ghats; drop point should be pre-decided. Evening Ganga Aarti at Dashashwamedh Ghat is unmissable.",
+    "aboutDestination": "Varanasi (Kashi/Benaras) is the spiritual capital of India and one of the oldest living cities in the world. Must-visit: Kashi Vishwanath Temple, Ganga Aarti at Dashashwamedh Ghat, Sarnath (where Buddha gave his first sermon), boat ride on the Ganges, and the ancient ghats. Famous for Banarasi silk sarees and street food."
+  },
+  "ranchi-to-giridih-cab": {
+    "highwayName": "NH-33 → SH via Bokaro",
+    "viaRoute": "Ranchi → Ramgarh → Bokaro → Giridih",
+    "enRouteCities": ["Ramgarh", "Bokaro", "Gomoh"],
+    "restStops": ["Ramgarh town (45 km)", "Bokaro Sector 4 (110 km)"],
+    "roadCondition": "NH-33 is excellent till Bokaro. Bokaro to Giridih is state highway — 2-lane, decent condition with some uneven patches.",
+    "tollInfo": "1 toll plaza. Toll ≈ ₹60–80 for sedan.",
+    "bestTimeToTravel": "Morning departure. Visit Parasnath Hill early for best views. Winter months ideal.",
+    "travelTips": "Giridih is famous for Parasnath Hill (Jain pilgrimage, 4480 ft). Trek takes 4–5 hours. Usri Falls is a beautiful monsoon waterfall.",
+    "aboutDestination": "Giridih is home to Parasnath Hill (Shikharji), the highest peak in Jharkhand at 4,480 ft and the most important Jain pilgrimage site in India. Other attractions include Usri Falls (beautiful cascade), Khandoli Park (adventure activities), and Jharkhand's mica mining heritage."
+  },
+  "ranchi-to-rourkela-cab": {
+    "highwayName": "NH-75 → NH-143",
+    "viaRoute": "Ranchi → Khunti → Chaibasa → Rourkela",
+    "enRouteCities": ["Khunti", "Chakradharpur", "Chaibasa"],
+    "restStops": ["Khunti town (40 km)", "Chakradharpur (100 km)", "Chaibasa restaurants (130 km)"],
+    "roadCondition": "Mixed condition. NH-75 is 2-lane but well-maintained. Some forest stretches between Khunti and Chakradharpur. Good approach to Rourkela.",
+    "tollInfo": "1 toll plaza. Toll ≈ ₹80 for sedan. Odisha state entry fee may apply.",
+    "bestTimeToTravel": "Morning departure. The forest route is scenic but avoid night driving due to wildlife crossings.",
+    "travelTips": "Beautiful forested route through Singhbhum. Rourkela has excellent Odia cuisine. Visit Hanuman Vatika (multi-faith temple complex) and Vedvyas (confluence of rivers Koel and Sankh).",
+    "aboutDestination": "Rourkela, the Steel City of Odisha, is home to Rourkela Steel Plant (SAIL). Key attractions include Hanuman Vatika (temple complex), Vedvyas Temple (sacred river confluence), Mandira Dam (picnic spot), and the lush Saranda Forest nearby — Asia's largest sal forest."
+  }
+}

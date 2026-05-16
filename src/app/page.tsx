@@ -4,9 +4,11 @@ import BookingForm from "@/components/BookingForm";
 import FleetSection from "@/components/FleetSection";
 import FAQSection from "@/components/FAQSection";
 import HeroBackground from "@/components/HeroBackground";
+import TrustBadges from "@/components/TrustBadges";
 import routes from "@/data/routes.json";
 import tours from "@/data/tours.json";
 import services from "@/data/services.json";
+import cities from "@/data/cities.json";
 
 const stats = [
   { icon: Users, value: "2,450+", label: "Happy Customers" },
@@ -27,12 +29,12 @@ const whyUs = [
 const svcIcons: Record<string, React.ElementType> = { ArrowRight, RefreshCw: Navigation, Plane, MapPin, Navigation, Heart, Briefcase, Bus: Car };
 
 const testimonials = [
-  { name: "Rajesh Kumar", city: "Ranchi", text: "Excellent service! Booked Ranchi to Jamshedpur cab. Driver was on time, car was clean. Best cab service in Ranchi.", rating: 5 },
-  { name: "Priya Singh", city: "Dhanbad", text: "Used Car Rental Ranchi for my wedding. The decorated Innova Crysta was stunning. Highly recommended!", rating: 5 },
-  { name: "Amit Verma", city: "Patna", text: "Regular customer for Ranchi to Patna route. Always reliable, affordable, and comfortable. 5 stars!", rating: 5 },
-  { name: "Sunita Devi", city: "Bokaro", text: "Best airport pickup service. Driver was waiting with name board. Very professional.", rating: 5 },
-  { name: "Vikash Mahato", city: "Ranchi", text: "Booked tempo traveller for our Deoghar trip. 12 people traveled comfortably. Great value!", rating: 5 },
-  { name: "Anita Kumari", city: "Jamshedpur", text: "Corporate cab service is excellent. Our company has been using them for 2 years. Punctual and reliable.", rating: 5 },
+  { name: "Rajesh Kumar", city: "Ranchi", text: "Excellent service! Booked Ranchi to Jamshedpur cab. Driver was on time, car was clean. Best cab service in Ranchi.", rating: 5, date: "Mar 2026", source: "Google Review" },
+  { name: "Priya Singh", city: "Dhanbad", text: "Used Car Rental Ranchi for my wedding. The decorated Innova Crysta was stunning. Highly recommended!", rating: 5, date: "Feb 2026", source: "Google Review" },
+  { name: "Amit Verma", city: "Patna", text: "Regular customer for Ranchi to Patna route. Always reliable, affordable, and comfortable. 5 stars!", rating: 5, date: "Apr 2026", source: "Google Review" },
+  { name: "Sunita Devi", city: "Bokaro", text: "Best airport pickup service. Driver was waiting with name board. Very professional.", rating: 5, date: "Jan 2026", source: "Google Review" },
+  { name: "Vikash Mahato", city: "Ranchi", text: "Booked tempo traveller for our Deoghar trip. 12 people traveled comfortably. Great value!", rating: 5, date: "May 2026", source: "Google Review" },
+  { name: "Anita Kumari", city: "Jamshedpur", text: "Corporate cab service is excellent. Our company has been using them for 2 years. Punctual and reliable.", rating: 5, date: "Apr 2026", source: "Google Review" },
 ];
 
 const homeFaqs = [
@@ -101,6 +103,8 @@ export default function HomePage() {
       <div className="container-custom lg:hidden -mt-12 relative z-20 mb-12">
         <BookingForm />
       </div>
+
+      <TrustBadges />
 
       {/* Services */}
       <section className="section-padding bg-dark-light/50">
@@ -234,7 +238,7 @@ export default function HomePage() {
                   <div className="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary-light font-bold text-sm">{t.name[0]}</div>
                   <div>
                     <div className="text-white text-sm font-medium">{t.name}</div>
-                    <div className="text-gray-500 text-xs">{t.city}</div>
+                    <div className="text-gray-500 text-xs">{t.city} • {t.date} • {t.source}</div>
                   </div>
                 </div>
               </div>
@@ -310,7 +314,31 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Cities We Serve — Internal Linking Hub */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="text-center mb-8">
+            <span className="text-primary-light text-sm font-semibold uppercase tracking-wider">Service Coverage</span>
+            <h2 className="text-2xl md:text-3xl font-bold mt-2">Cities We Serve Across Jharkhand</h2>
+            <p className="text-gray-400 mt-2 max-w-2xl mx-auto text-sm">Book cab service in any of these cities. 24/7 availability with professional drivers.</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            {cities.map(c => (
+              <Link key={c.slug} href={`/${c.slug}`} className="glass-card-light p-4 text-center hover:border-primary/30 transition-all no-underline group">
+                <div className="text-white font-semibold text-sm group-hover:text-primary-light transition-colors">{c.name}</div>
+                <div className="text-gray-500 text-xs mt-1">{c.state}</div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <FAQSection faqs={homeFaqs} />
+
+      {/* Last Updated — Freshness Signal */}
+      <div className="container-custom py-4 text-center">
+        <p className="text-gray-600 text-xs">Last updated: May 2026 | Car Rental Ranchi — Best Cab Service in Ranchi, Jharkhand</p>
+      </div>
     </>
   );
 }

@@ -40,11 +40,11 @@ export default function FareCalculator({ defaultFrom = "Ranchi", defaultTo = "",
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
         <div>
           <label className="text-xs text-gray-400 mb-1 block">From</label>
-          <input type="text" value={defaultFrom} readOnly className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-white text-sm" />
+          <input type="text" defaultValue={defaultFrom} readOnly className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-white text-sm" />
         </div>
         <div>
           <label className="text-xs text-gray-400 mb-1 block">To</label>
-          <input type="text" value={defaultTo} readOnly={!!defaultTo} placeholder="Enter destination" className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-white text-sm" />
+          <input type="text" defaultValue={defaultTo} readOnly={!!defaultTo} placeholder="Enter destination" className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-white text-sm" />
         </div>
       </div>
 

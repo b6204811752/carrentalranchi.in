@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import BookingForm from "@/components/BookingForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import HeroBackground from "@/components/HeroBackground";
 
 export const metadata: Metadata = {
   title: "Contact Us | Car Rental Ranchi | Call +91 7488341848",
@@ -11,10 +12,15 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="hero-gradient pt-4 pb-0">
-      <div className="container-custom">
-        <Breadcrumbs items={[{ label: "Contact Us" }]} />
-        <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-6">Contact Car Rental Ranchi</h1>
+    <>
+      <div className="relative pt-4 pb-12 overflow-hidden">
+        <HeroBackground />
+        <div className="hero-gradient absolute inset-0 pointer-events-none z-0" />
+        <div className="container-custom relative z-10">
+          <Breadcrumbs items={[{ label: "Contact Us" }]} />
+          <h1 className="text-3xl md:text-4xl font-bold mt-3 mb-2 leading-tight"><span className="gradient-text">Contact</span> Car Rental Ranchi</h1>
+          <p className="text-gray-300 text-sm">We&apos;re available 24/7. Call, WhatsApp, or fill the form.</p>
+        </div>
       </div>
       <section className="section-padding">
         <div className="container-custom">
@@ -30,13 +36,13 @@ export default function ContactPage() {
                   { icon: Clock, label: "Hours", value: "24/7 — Always Open", href: "#", desc: "We never close. Book anytime." },
                 ].map((item, i) => (
                   <a key={i} href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="glass-card-light p-5 flex items-start gap-4 hover:border-primary/30 transition-all no-underline block">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                    className="premium-card p-5 flex items-start gap-4 no-underline block shimmer">
+                    <div className="icon-glow shrink-0">
                       <item.icon size={22} className="text-primary-light" />
                     </div>
                     <div>
                       <div className="text-gray-400 text-xs">{item.label}</div>
-                      <div className="text-white font-semibold">{item.value}</div>
+                      <div className="text-white font-bold">{item.value}</div>
                       <div className="text-gray-500 text-xs mt-1">{item.desc}</div>
                     </div>
                   </a>
@@ -47,6 +53,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Clock, Star, Globe, MessageSquare, Share2, Video } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Star, ExternalLink } from "lucide-react";
 import routes from "@/data/routes.json";
+import cities from "@/data/cities.json";
 
 const popularRoutes = routes.slice(0, 12);
 
@@ -32,8 +33,20 @@ const quickLinks = [
 export default function Footer() {
   return (
     <footer className="bg-dark-light border-t border-white/5">
+      {/* Cities Hub — Internal Linking for SEO */}
+      <div className="container-custom pt-10 pb-6">
+        <h3 className="text-white font-semibold mb-4 text-base text-center">Cities We Serve</h3>
+        <div className="flex flex-wrap gap-2 justify-center">
+          {cities.map((c) => (
+            <Link key={c.slug} href={`/${c.slug}`} className="text-xs bg-white/5 hover:bg-primary/10 border border-white/8 rounded-full px-3 py-1.5 text-gray-400 hover:text-primary-light transition-colors no-underline">
+              Cab in {c.name}
+            </Link>
+          ))}
+        </div>
+      </div>
+
       {/* Main Footer */}
-      <div className="container-custom section-padding !pb-10">
+      <div className="container-custom section-padding !pt-6 !pb-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
@@ -45,7 +58,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
-              Ranchi&apos;s most trusted cab service. Affordable, safe, and reliable car rental for local, outstation, airport, wedding &amp; corporate travel across Jharkhand and India.
+              Ranchi&apos;s most trusted cab service since 2018. Affordable, safe, and reliable car rental for local, outstation, airport, wedding &amp; corporate travel across Jharkhand and India.
             </p>
             <div className="flex flex-col gap-2 text-sm">
               <a href="tel:+917488341848" className="flex items-center gap-2 text-gray-300 hover:text-primary-light transition-colors">
@@ -55,18 +68,18 @@ export default function Footer() {
                 <Mail size={14} className="text-primary-light" /> carrentalranchi01@gmail.com
               </a>
               <span className="flex items-center gap-2 text-gray-300">
-                <MapPin size={14} className="text-primary-light" /> Ranchi, Jharkhand 834001
+                <MapPin size={14} className="text-primary-light" /> Main Road, Ranchi, Jharkhand 834001
               </span>
               <span className="flex items-center gap-2 text-gray-300">
-                <Clock size={14} className="text-primary-light" /> 24/7 Available
+                <Clock size={14} className="text-primary-light" /> 24/7 Available — 365 Days
               </span>
             </div>
-            <div className="flex gap-3 mt-4">
-              {[Globe, MessageSquare, Share2, Video].map((Icon, i) => (
-                <a key={i} href="#" className="w-9 h-9 rounded-lg bg-white/5 hover:bg-primary/20 flex items-center justify-center text-gray-400 hover:text-primary-light transition-all">
-                  <Icon size={16} />
-                </a>
-              ))}
+
+            {/* Business Credentials — Trust Signal */}
+            <div className="mt-4 p-3 bg-white/3 rounded-lg border border-white/5">
+              <p className="text-gray-500 text-[11px] leading-relaxed">
+                <strong className="text-gray-400">Registered Business</strong> — Car Rental Ranchi, Est. 2018, Ranchi, Jharkhand, India. Serving 2,450+ customers across 5 states.
+              </p>
             </div>
           </div>
 
@@ -117,7 +130,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-white/5 py-5">
         <div className="container-custom flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} Car Rental Ranchi. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} Car Rental Ranchi. All Rights Reserved. | Ranchi, Jharkhand, India</p>
           <div className="flex items-center gap-1">
             <Star size={14} className="text-accent" />
             <span>Rated 4.8/5 by 2,450+ customers</span>

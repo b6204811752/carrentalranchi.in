@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { CheckCircle, Award, Users, Car, Shield, Phone } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import HeroBackground from "@/components/HeroBackground";
 
 export const metadata: Metadata = {
   title: "About Us | Car Rental Ranchi | Trusted Cab Service Since 2018",
@@ -10,17 +11,22 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="hero-gradient pt-4 pb-0">
-      <div className="container-custom">
-        <Breadcrumbs items={[{ label: "About Us" }]} />
-        <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-6">About Car Rental Ranchi</h1>
+    <>
+      <div className="relative pt-4 pb-12 overflow-hidden">
+        <HeroBackground />
+        <div className="hero-gradient absolute inset-0 pointer-events-none z-0" />
+        <div className="container-custom relative z-10">
+          <Breadcrumbs items={[{ label: "About Us" }]} />
+          <h1 className="text-3xl md:text-4xl font-bold mt-3 mb-2 leading-tight">About <span className="gradient-text">Car Rental Ranchi</span></h1>
+          <p className="text-gray-300 max-w-2xl text-sm">Ranchi&apos;s most trusted cab service since 2018</p>
+        </div>
       </div>
       <section className="section-padding">
         <div className="container-custom max-w-4xl text-gray-300 text-sm leading-relaxed space-y-4">
           <p className="text-base"><strong className="text-white">Car Rental Ranchi</strong> is Ranchi&apos;s most trusted and affordable cab service provider, serving thousands of satisfied customers since 2018. Based in Ranchi, Jharkhand, we provide comprehensive transportation solutions including local cab service, outstation travel, airport transfers, wedding car rental, corporate cab service, and tour packages.</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
             {[{ icon: Users, val: "2,450+", lbl: "Happy Customers" }, { icon: Car, val: "100+", lbl: "Vehicles" }, { icon: Award, val: "7+", lbl: "Years Experience" }, { icon: Shield, val: "24/7", lbl: "Available" }].map(s => (
-              <div key={s.lbl} className="glass-card p-5 text-center">
+              <div key={s.lbl} className="stat-card">
                 <s.icon size={28} className="text-primary-light mx-auto mb-2" />
                 <div className="text-white font-bold text-xl">{s.val}</div>
                 <div className="text-gray-400 text-xs">{s.lbl}</div>
@@ -41,12 +47,14 @@ export default function AboutPage() {
           <p>While headquartered in Ranchi, our services extend across all 24 districts of Jharkhand and major cities in neighboring states including Patna, Gaya (Bihar), Kolkata, Asansol (West Bengal), Bhubaneswar, Rourkela (Odisha), and Varanasi (Uttar Pradesh).</p>
         </div>
       </section>
-      <section className="py-12 bg-gradient-to-r from-primary/20 to-accent/10">
-        <div className="container-custom text-center">
+      <section className="py-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-dark to-accent/10" />
+        <div className="absolute top-0 left-1/4 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
+        <div className="container-custom text-center relative z-10">
           <h2 className="text-xl font-bold mb-3">Ready to Experience the Best Cab Service?</h2>
-          <a href="tel:+917488341848" className="btn-accent mt-3"><Phone size={18} /> Call +91 7488341848</a>
+          <a href="tel:+917488341848" className="btn-accent mt-3 text-base"><Phone size={18} /> Call +91 7488341848</a>
         </div>
       </section>
-    </div>
+    </>
   );
 }
