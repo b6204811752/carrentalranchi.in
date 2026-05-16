@@ -54,7 +54,7 @@ export default function BookingForm({ fromCity = "Ranchi", toCity = "" }: { from
         </div>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-4">
         <div>
           <label className="text-xs text-gray-400 mb-1 block">Date</label>
           <div className="relative">
@@ -77,11 +77,11 @@ export default function BookingForm({ fromCity = "Ranchi", toCity = "" }: { from
             <Car size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
             <select value={form.vehicle} onChange={e => setForm({...form, vehicle: e.target.value})}
               className="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-2 py-3 text-white text-sm focus:border-primary focus:outline-none transition-colors appearance-none">
-              <option value="sedan">Sedan</option>
-              <option value="suv">SUV/Ertiga</option>
-              <option value="innova">Innova</option>
-              <option value="crysta">Innova Crysta</option>
-              <option value="tempo">Tempo Traveller</option>
+              <option className="bg-slate-900 text-white" value="sedan">Sedan</option>
+              <option className="bg-slate-900 text-white" value="suv">SUV/Ertiga</option>
+              <option className="bg-slate-900 text-white" value="innova">Innova</option>
+              <option className="bg-slate-900 text-white" value="crysta">Innova Crysta</option>
+              <option className="bg-slate-900 text-white" value="tempo">Tempo Traveller</option>
             </select>
           </div>
         </div>
@@ -89,10 +89,10 @@ export default function BookingForm({ fromCity = "Ranchi", toCity = "" }: { from
           <label className="text-xs text-gray-400 mb-1 block">Trip Type</label>
           <select value={form.tripType} onChange={e => setForm({...form, tripType: e.target.value})}
             className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none transition-colors appearance-none">
-            <option value="one-way">One Way</option>
-            <option value="round-trip">Round Trip</option>
-            <option value="local">Local</option>
-            <option value="airport">Airport</option>
+            <option className="bg-slate-900 text-white" value="one-way">One Way</option>
+            <option className="bg-slate-900 text-white" value="round-trip">Round Trip</option>
+            <option className="bg-slate-900 text-white" value="local">Local</option>
+            <option className="bg-slate-900 text-white" value="airport">Airport</option>
           </select>
         </div>
       </div>

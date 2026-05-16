@@ -3,6 +3,7 @@ import { Phone, MapPin, Navigation, Shield, Clock, Star, Car, Users, IndianRupee
 import BookingForm from "@/components/BookingForm";
 import FleetSection from "@/components/FleetSection";
 import FAQSection from "@/components/FAQSection";
+import HeroBackground from "@/components/HeroBackground";
 import routes from "@/data/routes.json";
 import tours from "@/data/tours.json";
 import services from "@/data/services.json";
@@ -52,8 +53,10 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="hero-gradient pt-10 pb-16 md:pt-16 md:pb-24">
-        <div className="container-custom">
+      <section className="relative pt-10 pb-20 md:pt-16 lg:pb-24 overflow-hidden">
+        <HeroBackground />
+        <div className="hero-gradient absolute inset-0 pointer-events-none z-0" />
+        <div className="container-custom relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             <div className="pt-4">
               <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-5">
@@ -78,19 +81,26 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <div className="flex flex-wrap gap-3">
-                <a href="tel:+917488341848" className="btn-accent">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+                <a href="tel:+917488341848" className="btn-accent justify-center w-full sm:w-auto">
                   <Phone size={18} /> Call Now
                 </a>
-                <a href="https://wa.me/917488341848" target="_blank" rel="noopener noreferrer" className="btn-primary">
+                <a href="https://wa.me/917488341848" target="_blank" rel="noopener noreferrer" className="btn-primary justify-center w-full sm:w-auto">
                   WhatsApp Booking
                 </a>
               </div>
             </div>
-            <BookingForm />
+            <div className="hidden lg:block">
+              <BookingForm />
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Mobile Booking Form */}
+      <div className="container-custom lg:hidden -mt-12 relative z-20 mb-12">
+        <BookingForm />
+      </div>
 
       {/* Services */}
       <section className="section-padding bg-dark-light/50">
