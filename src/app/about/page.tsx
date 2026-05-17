@@ -37,7 +37,7 @@ export default function AboutPage() {
           <p>Our mission is to provide safe, reliable, and affordable transportation to every traveler in Jharkhand. We believe that quality cab service should be accessible to everyone — whether you&apos;re a business traveler, a tourist, a family going on vacation, or a couple on their wedding day.</p>
           <h2 className="text-2xl font-bold text-white mt-6">Why Choose Us?</h2>
           <ul className="space-y-2">
-            {["Lowest fares starting at ₹10/km — best price in Ranchi","100+ well-maintained, sanitized, AC vehicles","Professional, background-verified drivers","24/7 availability including holidays","Transparent pricing with no hidden charges","Coverage across Jharkhand, Bihar, West Bengal, Odisha, UP","Dedicated customer support via phone and WhatsApp","Free cancellation up to 4 hours before pickup","GST invoices for corporate bookings","Multiple payment options: Cash, UPI, Card, Bank Transfer"].map((item,i) => (
+            {["Lowest fares starting at ₹12/km — best price in Ranchi","100+ well-maintained, sanitized, AC vehicles","Professional, background-verified drivers","24/7 availability including holidays","Transparent pricing with no hidden charges","Coverage across Jharkhand, Bihar, West Bengal, Odisha, UP","Dedicated customer support via phone and WhatsApp","Free cancellation up to 4 hours before pickup","GST invoices for corporate bookings","Multiple payment options: Cash, UPI, Card, Bank Transfer"].map((item,i) => (
               <li key={i} className="flex items-start gap-2"><CheckCircle size={16} className="text-primary-light shrink-0 mt-0.5" />{item}</li>
             ))}
           </ul>

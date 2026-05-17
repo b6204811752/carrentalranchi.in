@@ -11,10 +11,10 @@ import TrustBadges from "@/components/TrustBadges";
 import HeroBackground from "@/components/HeroBackground";
 
 export const metadata: Metadata = {
-  title: "Cab Service in Ranchi | #1 Car Rental Ranchi | Taxi Booking ₹10/km | 24/7",
+  title: "Cab Service in Ranchi | #1 Car Rental Ranchi | Taxi Booking ₹12/km | 24/7",
   description: "Best cab service in Ranchi, Jharkhand. Book local taxi, outstation cab, Birsa Munda Airport transfer, wedding car. AC sedan, SUV, Innova. 24/7. Call +91 7488341848.",
   alternates: { canonical: "https://carrentalranchi.in/cab-service-in-ranchi" },
-  openGraph: { title: "Cab Service in Ranchi | Best Car Rental & Taxi Booking", description: "Ranchi's #1 rated cab service. Local, outstation, airport, wedding. From ₹10/km. Call +91 7488341848." },
+  openGraph: { title: "Cab Service in Ranchi | Best Car Rental & Taxi Booking", description: "Ranchi's #1 rated cab service. Local, outstation, airport, wedding. From ₹12/km. Call +91 7488341848." },
   keywords: ["cab service in ranchi", "taxi service ranchi", "car rental ranchi", "ranchi cab booking", "ranchi taxi", "outstation cab ranchi", "airport taxi ranchi", "local cab ranchi", "ranchi cab near me", "best cab service ranchi", "cab in ranchi", "car on rent in ranchi", "taxi in ranchi", "outstation taxi booking ranchi", "airport cab booking ranchi", "local taxi booking ranchi", "ranchi cab service", "car rental in ranchi", "taxi booking in ranchi", "local cab in ranchi", "airport cab in ranchi", "outstation cab in ranchi", "best cab service in ranchi", "top cab service in ranchi", "trusted cab service in ranchi", "professional cab service in ranchi", "reliable cab service in ranchi", "cab rental in ranchi", "taxi rental in ranchi", "innova in ranchi", "tempo traveller in ranchi", "suv in ranchi", "sedan in ranchi", "wedding car in ranchi", "airport transfer in ranchi", "outstation taxi booking in ranchi", "local taxi booking in ranchi", "airport cab booking in ranchi", "best cab service in ranchi", "top cab service in ranchi", "trusted cab service in ranchi", "professional cab service in ranchi", "reliable cab service in ranchi", "cab rental in ranchi", "taxi rental in ranchi", "innova in ranchi", "tempo traveller in ranchi", "suv in ranchi", "sedan in ranchi", "wedding car in ranchi", "airport transfer in ranchi", "best taxi service in ranchi", "best car rental in ranchi", "best taxi booking in ranchi", "best local taxi in ranchi", "best airport taxi in ranchi", "best outstation taxi in ranchi", "best wedding car in ranchi", "best airport transfer in ranchi", "best cab rental in ranchi", "best taxi rental in ranchi", "best innova in ranchi", "best tempo traveller in ranchi", "best suv in ranchi", "best sedan in ranchi", "best cab service in ranchi", "best taxi service in ranchi", "best car rental in ranchi", "best taxi booking in ranchi", "best local taxi in ranchi", "best airport taxi in ranchi", "best outstation taxi in ranchi", "best wedding car in ranchi", "best airport transfer in ranchi", "best cab rental in ranchi", "best taxi rental in ranchi", "best innova in ranchi", "best tempo traveller in ranchi", "best suv in ranchi", "best sedan in ranchi", "best cab service in ranchi", "best taxi service in ranchi", "best car rental in ranchi", "best taxi booking in ranchi", "best local taxi in ranchi", "best airport taxi in ranchi", "best outstation taxi in ranchi", "best wedding car in ranchi", "best airport transfer in ranchi", "best cab rental in ranchi", "best taxi rental in ranchi", "best innova in ranchi", "best tempo traveller in ranchi", "best suv in ranchi", "best sedan in ranchi", "ranchi taxi", "ranchi tour and travels", "ranchi cab service", "ranchi taxi service", "rental cab in ranchi", "rental taxi in ranchi"],
 };
 
@@ -44,11 +44,11 @@ const attractions = [
 ];
 
 const faqs = [
-  { q: "What is the cheapest cab fare in Ranchi?", a: "Our cab fares start at ₹10/km for Swift Dzire sedan. Local packages: 4hrs/40km from ₹800, 8hrs/80km from ₹1,500. Airport transfer from ₹400. No hidden charges — the fare you see is what you pay." },
+  { q: "What is the cheapest cab fare in Ranchi?", a: "Our cab fares start at ₹12/km for Swift Dzire sedan. Local packages: 4hrs/40km from ₹800, 8hrs/80km from ₹1,500. Airport transfer from ₹400. No hidden charges — the fare you see is what you pay." },
   { q: "How do I book a cab in Ranchi?", a: "Call +91 7488341848, WhatsApp us, or fill the form on this page. Share pickup/drop, date, time, and vehicle preference. We confirm instantly with driver details and exact fare." },
   { q: "Do you provide Ranchi Airport taxi service?", a: "Yes! 24/7 airport transfer at Birsa Munda Airport (IXR). Our drivers track your flight and wait at arrival gate with name board. 60 minutes free waiting after landing. Fare from ₹400." },
   { q: "Which areas in Ranchi do you cover?", a: "We cover every locality: Doranda, Main Road, Lalpur, Ratu Road, Kanke, Namkum, Hatia, Morabadi, Bariatu, Ashok Nagar, Kokar, Harmu, Hinoo, Chutia, Piska More, Argora, Kadru, Booty More, and all surrounding areas." },
-  { q: "Do you provide outstation cab from Ranchi?", a: "Yes! One-way and round trip to 100+ destinations: Jamshedpur (₹1,430), Dhanbad (₹1,760), Bokaro (₹1,210), Patna (₹3,630), Kolkata (₹4,400), Deoghar (₹2,750), and more." },
+  { q: "Do you provide outstation cab from Ranchi?", a: "Yes! One-way and round trip to 100+ destinations: Jamshedpur (₹1,799), Dhanbad (₹2,999), Bokaro (₹1,799), Patna (₹7,999), Kolkata (₹8,999), Deoghar (₹6,499), and more." },
   { q: "Which vehicles are available in Ranchi?", a: "Swift Dzire, Toyota Etios, Honda Amaze (sedans), Maruti Ertiga, Toyota Innova, Innova Crysta, Mahindra Scorpio, Toyota Fortuner (SUVs), 12/17 seater Tempo Travellers. All AC, GPS-tracked." },
   { q: "Is your cab service available 24/7 in Ranchi?", a: "Yes! 365 days a year, 24/7. Early morning 4 AM, late night 11 PM, festivals, holidays — we never say no. Call +91 7488341848 anytime." },
   { q: "Do you provide wedding car rental in Ranchi?", a: "Yes! Decorated Innova Crysta (₹3,500), Fortuner (₹5,000), luxury cars for Barat, Doli, reception. Fleet available for guest transport. Book 2-4 weeks in advance." },
@@ -72,7 +72,7 @@ export default function RanchiCityPage() {
     geo: { "@type": "GeoCoordinates", latitude: 23.3441, longitude: 85.3096 },
     areaServed: { "@type": "City", name: "Ranchi", containedInPlace: { "@type": "State", name: "Jharkhand" } },
     openingHoursSpecification: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "00:00", closes: "23:59" },
-    priceRange: "₹10/km - ₹22/km",
+    priceRange: "₹12/km - ₹25/km",
     aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", reviewCount: "2450", bestRating: "5" },
   };
 
@@ -94,7 +94,7 @@ export default function RanchiCityPage() {
                 Best <span className="gradient-text">Cab Service</span> in Ranchi — Car Rental &amp; Taxi Booking
               </h1>
               <p className="text-gray-300 text-base leading-relaxed mb-5 max-w-xl">
-                Book the most trusted cab service in Ranchi, Jharkhand. Local taxi, outstation trips to Jamshedpur, Patna &amp; Kolkata, Birsa Munda Airport transfer, wedding car rental. AC vehicles, verified drivers, <strong className="text-accent">starting ₹10/km</strong>. Available 24/7/365.
+                Book the most trusted cab service in Ranchi, Jharkhand. Local taxi, outstation trips to Jamshedpur, Patna &amp; Kolkata, Birsa Munda Airport transfer, wedding car rental. AC vehicles, verified drivers, <strong className="text-accent">starting ₹12/km</strong>. Available 24/7/365.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 mb-6">
                 <a href="tel:+917488341848" className="btn-accent justify-center"><Phone size={18} /> Call Now — 7488341848</a>

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
-  { q: "What is the cheapest cab fare in Ranchi?", a: "Our cab fares start at ₹10/km for a Swift Dzire sedan. Local packages start at ₹800 for 4 hours/40 km." },
+  { q: "What is the cheapest cab fare in Ranchi?", a: "Our cab fares start at ₹12/km for a Swift Dzire sedan. Local packages start at ₹800 for 4 hours/40 km." },
   { q: "How do I book a cab?", a: "Call +91 7488341848, WhatsApp us, or fill the booking form on our website. Instant confirmation." },
   { q: "Do you provide one-way cab service?", a: "Yes! Pay only for distance traveled. No return charges. Available on 100+ routes." },
   { q: "Which vehicles are available?", a: "Swift Dzire, Toyota Etios, Honda Amaze, Ertiga, Innova, Innova Crysta, Scorpio, Fortuner, Tempo Travellers." },

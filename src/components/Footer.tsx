@@ -68,7 +68,7 @@ export default function Footer() {
                 <Mail size={14} className="text-primary-light" /> carrentalranchi01@gmail.com
               </a>
               <span className="flex items-center gap-2 text-gray-300">
-                <MapPin size={14} className="text-primary-light" /> Main Road, Ranchi, Jharkhand 834001
+                <MapPin size={14} className="text-primary-light" /> Birsa chowk,Ranchi,jharkhand 834003
               </span>
               <span className="flex items-center gap-2 text-gray-300">
                 <Clock size={14} className="text-primary-light" /> 24/7 Available — 365 Days

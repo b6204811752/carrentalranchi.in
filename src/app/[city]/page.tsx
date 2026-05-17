@@ -38,7 +38,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
   const otherCityRoutes = routes.filter(r => r.state === c.state && r.to !== c.name).slice(0, 6);
 
   const faqs = [
-    { q: `What is the cab fare in ${c.name}?`, a: `Local cab fare in ${c.name} starts at just ₹10/km for sedan (Swift Dzire/Etios). SUV rates start at ₹13/km (Ertiga) and ₹15/km (Innova). Hourly packages: 4hr/40km from ₹800, 8hr/80km from ₹1,500. Airport/station transfer fares depend on distance. No hidden charges.` },
+    { q: `What is the cab fare in ${c.name}?`, a: `Local cab fare in ${c.name} starts at just ₹12/km for sedan (Swift Dzire/Etios). SUV rates start at ₹15/km (Ertiga) and ₹18/km (Innova). Hourly packages: 4hr/40km from ₹800, 8hr/80km from ₹1,500. Airport/station transfer fares depend on distance. No hidden charges.` },
     { q: `Is cab service available 24/7 in ${c.name}?`, a: `Yes! Car Rental Ranchi provides 24/7 cab service in ${c.name} — 365 days a year. Whether it's early morning 4 AM, late night 11 PM, weekends, festivals, or holidays, we are always available. Call +91 7488341848 anytime.` },
     { q: `Which cars are available for rent in ${c.name}?`, a: `We offer a wide range of vehicles in ${c.name}: Sedan (Swift Dzire, Toyota Etios, Honda Amaze), SUV (Maruti Ertiga, Toyota Innova), Premium (Innova Crysta, Mahindra Scorpio, Toyota Fortuner), and Group vehicles (12-seater and 17-seater Tempo Traveller). All vehicles are AC, well-maintained, and GPS-equipped.` },
     { q: `Can I book a cab from ${c.name} to Ranchi?`, a: `Absolutely! We provide both ${c.name} to Ranchi and Ranchi to ${c.name} cab service. ${fromRanchi ? `Distance: ${fromRanchi.distance} km, estimated time: ${fromRanchi.duration}, fare starting from ₹${fromRanchi.fares.dzire} (sedan).` : 'Call +91 7488341848 for exact fare.'} One-way and round trip options available.` },
@@ -63,7 +63,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
             <div>
               <span className="section-heading">{c.state}</span>
               <h1 className="text-2xl md:text-4xl font-bold mt-3 mb-3 leading-tight">Best <span className="gradient-text">Cab Service</span> in {c.name} — Car Rental &amp; Taxi Booking</h1>
-              <p className="text-gray-300 mb-5 text-sm leading-relaxed">Book affordable cab service in {c.name}, {c.state}. Local taxi, outstation, airport transfer at ₹10/km. 24/7 available. AC sedan, SUV, Innova. Call +91 7488341848.</p>
+              <p className="text-gray-300 mb-5 text-sm leading-relaxed">Book affordable cab service in {c.name}, {c.state}. Local taxi, outstation, airport transfer at ₹12/km. 24/7 available. AC sedan, SUV, Innova. Call +91 7488341848.</p>
               <div className="flex flex-wrap gap-3 mb-6">
                 {fromRanchi && (
                   <div className="stat-card !p-3">
@@ -79,7 +79,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
                 </div>
                 <div className="stat-card !p-3">
                   <Star size={14} className="text-yellow-400 mx-auto mb-1" />
-                  <div className="text-primary-light font-bold">₹10/km</div>
+                  <div className="text-primary-light font-bold">₹12/km</div>
                   <div className="text-gray-500 text-xs">Starting Fare</div>
                 </div>
               </div>
@@ -150,7 +150,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
             <p>There are many <strong>taxi services in {c.name}</strong>, but here&apos;s what makes <strong>Car Rental Ranchi</strong> the preferred choice for thousands of travelers:</p>
             <ul className="space-y-2">
               {[
-                `Lowest fares in ${c.name} — starting at just ₹10/km for sedan, no surge pricing ever`,
+                `Lowest fares in ${c.name} — starting at just ₹12/km for sedan, no surge pricing ever`,
                 "100% AC, sanitized fleet — Swift Dzire, Ertiga, Innova, Innova Crysta, Fortuner, Tempo Traveller",
                 "Police-verified, experienced drivers — courteous, non-smoking, well-groomed professionals",
                 "24/7 availability — book anytime, travel anytime, even at 3 AM on a holiday",

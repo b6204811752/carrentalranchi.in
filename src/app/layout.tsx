@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"], display: "swap" });
 export const metadata: Metadata = {
   metadataBase: new URL("https://carrentalranchi.in"),
   title: {
-    default: "Car Rental Ranchi | Best Cab Service in Ranchi | Taxi Booking ₹10/km",
+    default: "Car Rental Ranchi | Best Cab Service in Ranchi | Taxi Booking ₹12/km",
     template: "%s | Car Rental Ranchi",
   },
   description:
@@ -51,7 +51,7 @@ const jsonLdBusiness = {
   address: { "@type": "PostalAddress", streetAddress: "Main Road", addressLocality: "Ranchi", addressRegion: "Jharkhand", addressCountry: "IN", postalCode: "834001" },
   geo: { "@type": "GeoCoordinates", latitude: 23.3441, longitude: 85.3096 },
   openingHoursSpecification: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], opens: "00:00", closes: "23:59" },
-  priceRange: "₹10/km - ₹22/km",
+  priceRange: "₹12/km - ₹25/km",
   currenciesAccepted: "INR",
   paymentAccepted: "Cash, UPI, Google Pay, PhonePe, Paytm, Bank Transfer",
   areaServed: [

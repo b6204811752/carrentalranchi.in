@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 
-
 const images = [
   "/background/bg.png",
   "/background/bg1.jpg",
@@ -32,12 +31,20 @@ export default function HeroBackground() {
         >
           <img
             src={src}
-            alt={`Background ${index + 1}`}
+            alt={`Car Rental Ranchi - Background ${index + 1}`}
             className="absolute inset-0 w-full h-full object-cover object-center"
+            style={{ filter: "none" }}
           />
         </div>
       ))}
-      <div className="absolute inset-0 bg-slate-900/60 z-10"></div>
+      {/* Reduced overlay: subtle gradient for text readability without hiding images */}
+      <div
+        className="absolute inset-0 z-10"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(15,23,42,0.45) 0%, rgba(15,23,42,0.55) 50%, rgba(15,23,42,0.85) 100%)",
+        }}
+      />
     </div>
   );
 }

@@ -31,7 +31,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           <div className="text-gray-300 text-sm leading-relaxed space-y-4">
             <p>{b.excerpt}</p>
             <p>Planning a trip from Ranchi? Car Rental Ranchi provides the most affordable and reliable cab service across Jharkhand and neighboring states. With our fleet of 100+ vehicles and professional drivers, we ensure every journey is comfortable, safe, and memorable.</p>
-            <p>Whether you&apos;re looking for a local cab in Ranchi, an outstation trip to your destination, or an airport transfer at Birsa Munda Airport, we&apos;ve got you covered. Our transparent per-km pricing starts at just ₹10/km with absolutely no hidden charges.</p>
+            <p>Whether you&apos;re looking for a local cab in Ranchi, an outstation trip to your destination, or an airport transfer at Birsa Munda Airport, we&apos;ve got you covered. Our transparent per-km pricing starts at just ₹12/km with absolutely no hidden charges.</p>
             <h2 className="text-xl font-bold text-white mt-6">Why Choose Car Rental Ranchi?</h2>
             <p>With 2,450+ satisfied customers, 4.8/5 rating, and 7+ years of experience, Car Rental Ranchi is the most trusted name in cab service across Jharkhand. We offer 24/7 availability, verified drivers, sanitized vehicles, and the best prices in the market.</p>
             <p>Ready to book? Call us at <a href="tel:+917488341848" className="text-primary-light font-medium">+91 7488341848</a> or WhatsApp us for instant booking confirmation.</p>

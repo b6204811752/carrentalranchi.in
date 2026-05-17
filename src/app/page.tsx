@@ -18,7 +18,7 @@ const stats = [
 ];
 
 const whyUs = [
-  { icon: IndianRupee, title: "Best Price Guarantee", desc: "Starting ₹10/km with no hidden charges. Transparent billing on every trip." },
+  { icon: IndianRupee, title: "Best Price Guarantee", desc: "Starting ₹12/km with no hidden charges. Transparent billing on every trip." },
   { icon: Shield, title: "Safe & Verified Drivers", desc: "Background-verified, experienced drivers who know every route across Jharkhand." },
   { icon: Clock, title: "24/7 Availability", desc: "Book anytime — early morning, late night, holidays. We never close." },
   { icon: Car, title: "Well-Maintained Fleet", desc: "Sanitized, AC vehicles — Sedans, SUVs, Innova, Crysta, Tempo Traveller." },
@@ -38,7 +38,7 @@ const testimonials = [
 ];
 
 const homeFaqs = [
-  { q: "What is the cheapest cab fare in Ranchi?", a: "Our cab fares start at just ₹10/km for a Swift Dzire sedan. For local travel within Ranchi, packages start at ₹800 for 4 hours/40 km. We offer the most competitive pricing in Ranchi with absolutely no hidden charges." },
+  { q: "What is the cheapest cab fare in Ranchi?", a: "Our cab fares start at just ₹12/km for a Swift Dzire sedan. For local travel within Ranchi, packages start at ₹800 for 4 hours/40 km. We offer the most competitive pricing in Ranchi with absolutely no hidden charges." },
   { q: "How do I book a cab with Car Rental Ranchi?", a: "Booking is easy! Call us at +91 7488341848, WhatsApp us, or fill the booking form on our website. Share your pickup/drop details, date, time, and preferred vehicle. We'll confirm your booking instantly with driver details." },
   { q: "Do you provide one-way cab service from Ranchi?", a: "Yes! We offer one-way cab service from Ranchi to 100+ destinations. You pay only for the distance traveled — no return fare charged. Popular one-way routes include Ranchi to Jamshedpur, Patna, Kolkata, and more." },
   { q: "Which vehicles are available for hire in Ranchi?", a: "We have a fleet of 100+ vehicles including Swift Dzire, Toyota Etios, Honda Amaze (sedans), Maruti Ertiga, Toyota Innova, Innova Crysta, Mahindra Scorpio, Toyota Fortuner (SUVs), and 12/17 seater Tempo Travellers." },
@@ -69,7 +69,7 @@ export default function HomePage() {
                 Best <span className="gradient-text">Car Rental</span> &amp; Cab Service in <span className="gradient-text">Ranchi</span>
               </h1>
               <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-6 max-w-xl">
-                Book affordable cab service in Ranchi for local travel, outstation trips, airport transfer, wedding &amp; corporate travel. Professional drivers, AC vehicles, 24/7 service starting at just <strong className="text-accent">₹10/km</strong>.
+                Book affordable cab service in Ranchi for local travel, outstation trips, airport transfer, wedding &amp; corporate travel. Professional drivers, AC vehicles, 24/7 service starting at just <strong className="text-accent">₹12/km</strong>.
               </p>
 
               {/* Stats */}
@@ -118,13 +118,13 @@ export default function HomePage() {
             {services.map(s => {
               const Icon = svcIcons[s.icon] || Car;
               return (
-                <Link key={s.id} href={`/services/${s.slug}`} className="glass-card-light p-5 hover:border-primary/30 transition-all group no-underline">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
+                <Link key={s.id} href={`/services/${s.slug}`} className="premium-card p-5 group no-underline shimmer">
+                  <div className="icon-glow mb-4">
                     <Icon size={22} className="text-primary-light" />
                   </div>
-                  <h3 className="text-white font-semibold text-base mb-1">{s.name}</h3>
-                  <p className="text-gray-400 text-xs line-clamp-2">{s.shortDesc}</p>
-                  <span className="text-primary-light text-xs mt-3 flex items-center gap-1 group-hover:gap-2 transition-all">Learn More <ArrowRight size={14} /></span>
+                  <h3 className="text-white font-bold text-lg mb-2">{s.name}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-4">{s.shortDesc}</p>
+                  <span className="text-primary-light text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">Learn More <ArrowRight size={16} /></span>
                 </Link>
               );
             })}
@@ -141,7 +141,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {whyUs.map(w => (
-              <div key={w.title} className="glass-card-light p-6 hover:border-primary/20 transition-all">
+              <div key={w.title} className="premium-card p-6 shimmer">
                 <w.icon size={28} className="text-primary-light mb-3" />
                 <h3 className="text-white font-semibold mb-2">{w.title}</h3>
                 <p className="text-gray-400 text-sm">{w.desc}</p>
@@ -165,7 +165,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {popular.map(r => (
-              <Link key={r.slug} href={`/routes/${r.slug}`} className="glass-card-light p-5 hover:border-primary/30 transition-all group no-underline">
+              <Link key={r.slug} href={`/routes/${r.slug}`} className="premium-card p-5 group no-underline shimmer">
                 <div className="flex items-center gap-2 mb-2">
                   <MapPin size={16} className="text-green-400" />
                   <span className="text-white font-semibold text-sm">Ranchi</span>
@@ -197,7 +197,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {topTours.map(t => (
-              <Link key={t.id} href={`/tours/${t.slug}`} className="glass-card-light overflow-hidden group no-underline">
+              <Link key={t.id} href={`/tours/${t.slug}`} className="premium-card overflow-hidden group no-underline shimmer">
                 <div className="h-32 bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center">
                   <Navigation size={32} className="text-primary-light opacity-50" />
                 </div>
@@ -231,7 +231,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {testimonials.map((t, i) => (
-              <div key={i} className="glass-card-light p-5">
+              <div key={i} className="premium-card p-5 shimmer">
                 <div className="flex gap-1 mb-3">{Array.from({length: t.rating}).map((_, j) => <Star key={j} size={14} className="text-accent fill-accent" />)}</div>
                 <p className="text-gray-300 text-sm italic mb-4">&quot;{t.text}&quot;</p>
                 <div className="flex items-center gap-3 border-t border-white/5 pt-3">
@@ -290,7 +290,7 @@ export default function HomePage() {
             </p>
             <h3 className="text-xl font-bold mt-6 mb-3">Why Choose Car Rental Ranchi?</h3>
             <ul className="text-gray-300">
-              <li>Lowest fares starting at ₹10/km with transparent pricing</li>
+              <li>Lowest fares starting at ₹12/km with transparent pricing</li>
               <li>24/7 availability including holidays and late nights</li>
               <li>GPS-tracked, sanitized, AC vehicles</li>
               <li>Background-verified, experienced drivers</li>
